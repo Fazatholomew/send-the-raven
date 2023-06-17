@@ -8,6 +8,7 @@ packages = [{include = "send_the_raven"}]
 
 [tool.poetry.dependencies]
 python = "^3.7"
+pydantic = "^1.10.9"
 
 
 [tool.poetry.group.dev.dependencies]
