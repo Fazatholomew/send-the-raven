@@ -13,3 +13,14 @@ def test_no_id_creation():
    """
    address = Address(id='testest')
    assert address.id == 'testest'
+
+def test_generate_full_address():
+    """
+    Test that full address is generated correctly.
+    """
+    address = Address(id='testest')
+    assert address.generate_full_address() == ''
+    address = Address(street='12 main st', city='boston')
+    assert address.generate_full_address() == '12 main st, boston'
+    address = Address(street='12 main st', state='ma')
+    assert address.generate_full_address() == '12 main st, ma'

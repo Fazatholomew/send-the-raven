@@ -9,6 +9,7 @@ packages = [{include = "send_the_raven"}]
 [tool.poetry.dependencies]
 python = "^3.10"
 pydantic = "^2.3.0"
+usaddress-scourgify = "^0.5.1"
 
 
 [tool.poetry.group.dev.dependencies]
