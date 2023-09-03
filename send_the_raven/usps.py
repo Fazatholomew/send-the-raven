@@ -59,6 +59,7 @@ class Validator:
         except Exception as e:
             for address in data:
                 self.errors.append((address, e))
+                self.results.append(address)
 
     async def start_validation(self):
         connector = TCPConnector(limit_per_host=self.request_limit)
