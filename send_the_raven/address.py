@@ -55,7 +55,7 @@ class Address(BaseModel):
     zip_code: Optional[str] = None
     id: Optional[str] = generate_id()
 
-    def generate_full_address(self):
+    def __str__(self):
         """
         Generates the full address from the address fields.
         Omitting empty or None value.
@@ -106,6 +106,9 @@ class Address(BaseModel):
             self.state = normalized["state"]
             self.zip_code = normalized["postal_code"]
 
+    def __eq__(self, b) -> bool:
+        return compare(self, b) > 0.7
+
 
 class Addresses:
     """
@@ -130,7 +133,13 @@ class Addresses:
             if field not in self.field_mapping:
                 self.field_mapping[field] = field
         self.addresses = [
-            Address(**{self.field_mapping[k]: v for k, v in address.items()})
+            Address(
+                **{
+                    self.field_mapping[k]: v
+                    for k, v in address.items()
+                    if k in self.field_mapping
+                }
+            )
             for address in addresses
         ]
 

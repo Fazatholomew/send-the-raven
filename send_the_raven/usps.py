@@ -71,6 +71,8 @@ class Validator:
             )
 
     def start(self):
+        self.results = []
+        self.errors = []
         try:
             asyncio.run(self.start_validation())
         except RuntimeError:

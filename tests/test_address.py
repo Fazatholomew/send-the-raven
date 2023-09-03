@@ -23,11 +23,11 @@ def test_generate_full_address():
     Test that full address is generated correctly.
     """
     address = Address(id="testest")
-    assert address.generate_full_address() == ""
+    assert str(address) == ""
     address = Address(street="12 main st", city="boston")
-    assert address.generate_full_address() == "12 main st, boston"
+    assert str(address) == "12 main st, boston"
     address = Address(street="12 main st", state="ma")
-    assert address.generate_full_address() == "12 main st, ma"
+    assert str(address) == "12 main st, ma"
 
 
 def test_normalize_full_address_or_components():
