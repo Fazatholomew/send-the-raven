@@ -3,6 +3,7 @@ from typing import Optional, Iterable, Any
 from geopy.geocoders import get_geocoder_for_service
 from geopy.extra.rate_limiter import AsyncRateLimiter
 from geopy.location import Location
+from h3 import geo_to_h3
 import asyncio
 from random import randint
 
@@ -26,7 +27,8 @@ class GeoAddress(Address):
         """
         Compare addresses using H3 index.
         """
-
+        if not isinstance(b, GeoAddress):
+            raise Exception("Cannot compare addresses with different types")
         if self.h3_resolution != b.h3_resolution:
             raise Exception("Cannot compare addresses with different H3 resolutions")
         if self.h3_index is None or b.h3_index is None:
@@ -38,6 +40,16 @@ class GeoAddress(Address):
         Return hash of h3_index
         """
         return self.h3_index.__hash__()
+
+    def __setattr__(self, name: str, value: Any) -> None:
+        if name in ["longitude", "latitude", "h3_resolution"]:
+            if (
+                self.latitude is not None
+                and self.longitude is not None
+                and self.h3_resolution is not None
+            ):
+                self.h3_index = geo_to_h3(self.latitude, self.longitude, self.latitude)
+        return super().__setattr__(name, value)
 
 
 class Geocoder(Addresses):
