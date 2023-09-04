@@ -192,7 +192,7 @@ class Address(BaseModel):
         """
         if self.state is None:
             return self.state
-        
+
         if len(self.state) == 2:
             return self.state
 
@@ -265,6 +265,11 @@ class Addresses:
             raise ValueError("field_mapping must be the same")
         self.addresses = self.addresses + b.addresses
         return self
+    
+    def __contains__(self, item) -> bool:
+        if not isinstance(item, Address):
+            raise TypeError("item must be an Address object")
+        return item in self.addresses
 
 
 def _process_street(street: str):
@@ -307,6 +312,7 @@ def _process_street(street: str):
         except ValueError:
             pass
     return (street_numbers, street_name)
+    
 
 
 def compare(a: Address, b: Address) -> float:
