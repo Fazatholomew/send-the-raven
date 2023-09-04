@@ -1,5 +1,5 @@
 from pydantic import BaseModel
-from typing import Optional, Iterable, Any
+from typing import Optional, Iterable, Any, TypedDict
 from .utils import generate_id
 from multiprocessing import Pool
 from scourgify import normalize_address_record
@@ -10,6 +10,7 @@ from scourgify.exceptions import (
 )
 from difflib import SequenceMatcher
 from re import compile
+from json import load
 
 STREET_ADDRESS_NUMBER_REGEX_PATTERN = compile(r"\d+")
 
@@ -22,6 +23,31 @@ DEFAULT_ADDRESS_MAPPING = {
     "zip_code": "zip_code",
     "id": "id",
 }
+
+
+class Geomapper(TypedDict):
+    """
+    Lookup table to perform state, city, or zip code lookups.
+
+    {
+        "state": {
+                "new york: "NY,
+                ...
+                "washington": "WA"
+        },
+        "city": {
+            "boston": ["ma", "02354"],
+            ...
+        }
+    }
+    """
+
+    state: dict[str, str]
+    city: dict[str, list[str]]
+
+
+with open("states, cities, zipcodes.json") as dict_file:
+    GEOGRAPHY_MAPPER: Geomapper = load(dict_file)
 
 
 class Address(BaseModel):
@@ -107,8 +133,87 @@ class Address(BaseModel):
             self.zip_code = normalized["postal_code"]
 
     def __eq__(self, b) -> bool:
-        return compare(self, b) > 0.7
+        return compare(self, b) > 0.73
 
+    def fill_in_city(self):
+        """
+        Try to find the correct city by using difflib SequenceMatcher.
+        If the ratio score is above 0.73, it will replace current city with it.
+
+        Expensive operation.
+        """
+        if self.city is None:
+            return
+        highest = 0.0
+        current_city = ""
+        for city in GEOGRAPHY_MAPPER["city"]:
+            score = SequenceMatcher(None, self.city.lower(), city).ratio()
+            if score > highest:
+                highest = score
+                current_city = city
+        if highest > 0.73:
+            self.city = current_city
+        return self.city
+    
+    def fill_in_zipcode(self):
+        """
+        Try to find the correct zipcode using city.
+        USPS validation will have more successful rate
+        when zip code is present even though it's the wrong zipcode
+        but the city is the same.
+
+        e.g:
+        Boston has 02114, 02205, 02205, etc.
+        It's better to fill in the zip code with 02205 even though the
+        actual address' zip code is 02114 rather than to not fill in.
+        """
+        if self.zip_code is not None and len(self.zip_code) == 4:
+            self.zip_code = f'0{self.zip_code}'
+            return self.zip_code
+
+        if self.city is None:
+            return self.zip_code
+        
+        if self.city.lower() in GEOGRAPHY_MAPPER["city"]:
+            self.zip_code = GEOGRAPHY_MAPPER["city"][self.city.lower()][1]
+        
+        return self.zip_code
+    
+    def fill_in_state(self):
+        """
+        Try to convert state into its 2-letter abbreviation.
+        If not found, use SequenceMatcher to find the
+        closest one.
+
+        USPS needs 2-letter abbreviation.
+        """
+        if self.state is not None and len(self.state) == 2:
+            return self.state
+        
+        if self.state is None:
+            if self.city is None:
+                return self.state
+            if self.city.lower() in GEOGRAPHY_MAPPER["city"]:
+                self.state = GEOGRAPHY_MAPPER["city"][self.city.lower()][0]
+                return self.state
+            return self.state
+
+        if self.state.lower() in GEOGRAPHY_MAPPER["state"]:
+            self.state = GEOGRAPHY_MAPPER['state'][self.state.lower()]
+            return self.state
+        
+        highest = 0.0
+        current_state = ""
+        for state in GEOGRAPHY_MAPPER["state"]:
+            score = SequenceMatcher(None, self.state.lower(), state).ratio()
+            if score > highest:
+                highest = score
+                current_state = state
+        if highest > 0.73:
+            self.state = GEOGRAPHY_MAPPER["state"][current_state]
+        return self.state
+
+            
 
 class Addresses:
     """
@@ -134,12 +239,10 @@ class Addresses:
                 self.field_mapping[field] = field
         self.addresses = [
             Address(
-                **{
-                    self.field_mapping[k]: v
-                    for k, v in address.items()
-                    if k in self.field_mapping
-                }
+                **{k: address[v] for k, v in self.field_mapping.items() if v in address}
             )
+            if not isinstance(address, Address)
+            else address
             for address in addresses
         ]
 
@@ -159,6 +262,12 @@ class Addresses:
 
     def __len__(self):
         return len(self.addresses)
+
+    def __add__(self, b):
+        if self.field_mapping.values() != b.field_mapping.values():
+            raise ValueError("field_mapping must be the same")
+        self.addresses = self.addresses + b.addresses
+        return self
 
 
 def _process_street(street: str):

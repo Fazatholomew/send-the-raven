@@ -17,6 +17,11 @@ def test_no_id_creation():
     address = Address(id="testest")
     assert address.id == "testest"
 
+def test_equality():
+    a = Address(id="testest", street='13 main street', city='boston', state='ma')
+    b = Address(id="testest", street='12 main street', city='boston', state='ma')
+    assert a != b
+
 
 def test_generate_full_address():
     """

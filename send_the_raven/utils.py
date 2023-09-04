@@ -1,4 +1,4 @@
-from random import getrandbits
+from random import getrandbits, random
 from typing import Iterable, TypeVar
 
 T = TypeVar("T")
@@ -11,7 +11,7 @@ def generate_id(extra_string="") -> str:
     Args:
         extra_string (str): extra string to make it more random.
     """
-    return f"%010x{extra_string}" % getrandbits(60)
+    return (f"%010x{extra_string}{random()}" % getrandbits(60))[:15]
 
 
 def split_into_n_elements(data: Iterable[T], n_element: int = 5) -> list[list[T]]:
