@@ -17,9 +17,10 @@ def test_no_id_creation():
     address = Address(id="testest")
     assert address.id == "testest"
 
+
 def test_equality():
-    a = Address(id="testest", street='13 main street', city='boston', state='ma')
-    b = Address(id="testest", street='12 main street', city='boston', state='ma')
+    a = Address(id="testest", street="13 main street", city="boston", state="ma")
+    b = Address(id="testest", street="12 main street", city="boston", state="ma")
     assert a != b
 
 
@@ -93,3 +94,46 @@ def test_compare():
         Address(street="12 main st", address_line_2="unit 5"),
         Address(street="12 main st", address_line_2="unit 5a"),
     )
+
+
+def test_fill_in_city():
+    no_city = Address()
+    no_city.fill_in_city()
+    assert no_city.city is None
+    boston = Address(city="bostn")
+    boston.fill_in_city()
+    assert boston.city == "boston"
+    new_york = Address(city="ewyork")
+    new_york.fill_in_city()
+    assert new_york.city == "new york"
+
+
+def test_fill_in_zipcode():
+    four_zipcode = Address(zip_code="3345")
+    four_zipcode.fill_in_zipcode()
+    assert four_zipcode.zip_code == "03345"
+    four_zipcode = Address(zip_code="03345")
+    four_zipcode.fill_in_zipcode()
+    assert four_zipcode.zip_code == "03345"
+    four_zipcode = Address()
+    four_zipcode.fill_in_zipcode()
+    assert four_zipcode.zip_code is None
+    four_zipcode = Address(city="southwick")
+    four_zipcode.fill_in_zipcode()
+    assert four_zipcode.zip_code == "01077"
+
+def test_fill_in_state():
+     no_state = Address()
+     no_state.fill_in_state()
+     assert no_state.state is None
+     washington = Address(state="washington")
+     washington.fill_in_state()
+     assert washington.state == "WA"
+     washington = Address(state="massechusts")
+     washington.fill_in_state()
+     assert washington.state == "MA"
+     washington = Address(state="NY")
+     washington.fill_in_state()
+     assert washington.state == "NY"
+
+     

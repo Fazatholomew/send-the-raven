@@ -25,29 +25,29 @@ DEFAULT_ADDRESS_MAPPING = {
 }
 
 
-class Geomapper(TypedDict):
+class Placemapper(TypedDict):
     """
     Lookup table to perform state, city, or zip code lookups.
 
     {
-        "state": {
+        "states": {
                 "new york: "NY,
                 ...
                 "washington": "WA"
         },
-        "city": {
+        "cities": {
             "boston": ["ma", "02354"],
             ...
         }
     }
     """
 
-    state: dict[str, str]
-    city: dict[str, list[str]]
+    states: dict[str, str]
+    cities: dict[str, list[str]]
 
 
-with open("states, cities, zipcodes.json") as dict_file:
-    GEOGRAPHY_MAPPER: Geomapper = load(dict_file)
+with open("send_the_raven/states, cities, zipcodes.json") as dict_file:
+    GEOGRAPHY_MAPPER: Placemapper = load(dict_file)
 
 
 class Address(BaseModel):
@@ -146,7 +146,7 @@ class Address(BaseModel):
             return
         highest = 0.0
         current_city = ""
-        for city in GEOGRAPHY_MAPPER["city"]:
+        for city in GEOGRAPHY_MAPPER["cities"]:
             score = SequenceMatcher(None, self.city.lower(), city).ratio()
             if score > highest:
                 highest = score
@@ -154,7 +154,7 @@ class Address(BaseModel):
         if highest > 0.73:
             self.city = current_city
         return self.city
-    
+
     def fill_in_zipcode(self):
         """
         Try to find the correct zipcode using city.
@@ -167,18 +167,21 @@ class Address(BaseModel):
         It's better to fill in the zip code with 02205 even though the
         actual address' zip code is 02114 rather than to not fill in.
         """
-        if self.zip_code is not None and len(self.zip_code) == 4:
-            self.zip_code = f'0{self.zip_code}'
-            return self.zip_code
+        if self.zip_code is not None:
+            if len(self.zip_code) == 5:
+                return self.zip_code
+            if len(self.zip_code) == 4:
+                self.zip_code = f"0{self.zip_code}"
+                return self.zip_code
 
         if self.city is None:
             return self.zip_code
-        
-        if self.city.lower() in GEOGRAPHY_MAPPER["city"]:
-            self.zip_code = GEOGRAPHY_MAPPER["city"][self.city.lower()][1]
-        
+
+        if self.city.lower() in GEOGRAPHY_MAPPER["cities"]:
+            self.zip_code = GEOGRAPHY_MAPPER["cities"][self.city.lower()][1]
+
         return self.zip_code
-    
+
     def fill_in_state(self):
         """
         Try to convert state into its 2-letter abbreviation.
@@ -187,33 +190,27 @@ class Address(BaseModel):
 
         USPS needs 2-letter abbreviation.
         """
-        if self.state is not None and len(self.state) == 2:
+        if self.state is None:
             return self.state
         
-        if self.state is None:
-            if self.city is None:
-                return self.state
-            if self.city.lower() in GEOGRAPHY_MAPPER["city"]:
-                self.state = GEOGRAPHY_MAPPER["city"][self.city.lower()][0]
-                return self.state
+        if len(self.state) == 2:
             return self.state
 
-        if self.state.lower() in GEOGRAPHY_MAPPER["state"]:
-            self.state = GEOGRAPHY_MAPPER['state'][self.state.lower()]
+        if self.state.lower() in GEOGRAPHY_MAPPER["states"]:
+            self.state = GEOGRAPHY_MAPPER["states"][self.state.lower()]
             return self.state
-        
+
         highest = 0.0
         current_state = ""
-        for state in GEOGRAPHY_MAPPER["state"]:
+        for state in GEOGRAPHY_MAPPER["states"]:
             score = SequenceMatcher(None, self.state.lower(), state).ratio()
             if score > highest:
                 highest = score
                 current_state = state
         if highest > 0.73:
-            self.state = GEOGRAPHY_MAPPER["state"][current_state]
+            self.state = GEOGRAPHY_MAPPER["states"][current_state]
         return self.state
 
-            
 
 class Addresses:
     """
