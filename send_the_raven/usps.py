@@ -45,7 +45,7 @@ def prepare_xml(current_addresses: list[Address], usps_id: str) -> str:
     return unparse(xml)
 
 
-class Validator:
+class Validator(Addresses):
     """
     Class to validate addresses to USPS database.
 
@@ -57,12 +57,6 @@ class Validator:
         results (list[Addresses]): validated addresses.
         errors (list[tuple[Address, Exception]]): addresses with errors.
     """
-
-    def __init__(self, data: Addresses):
-        self.data = data
-        self.results: list[Address] = []
-        self.errors: list[tuple[Address, Exception]] = []
-
     async def validate(self, data: list[Address], client: ClientSession):
         """
         Request validation data to USPS database
@@ -72,7 +66,6 @@ class Validator:
             client (ClientSession): Initialized aiohttp ClientSession
         """
         xml_string = prepare_xml(data, self.usps_id)
-        print(xml_string)
         url = f"https://secure.shippingapis.com/ShippingAPI.dll?API=Verify&XML={quote_plus(xml_string)}"
         try:
             res = await client.get(url)
@@ -115,7 +108,7 @@ class Validator:
             await asyncio.gather(
                 *[
                     self.validate(current_addresses, session)
-                    for current_addresses in split_into_n_elements(self.data)
+                    for current_addresses in split_into_n_elements(self.addresses)
                 ]
             )
 
@@ -139,6 +132,5 @@ class Validator:
             asyncio.run(self.start_validation())
         except RuntimeError:
             asyncio.create_task(self.start_validation())
-        results = Addresses([], self.data.field_mapping)
-        results.addresses = self.results
-        return results
+        self.addresses = self.results
+        return self.addresses
