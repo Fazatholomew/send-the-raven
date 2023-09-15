@@ -19,11 +19,11 @@ def split_into_n_elements(data: Iterable[T], n_element: int = 5) -> list[list[T]
     Split iterable into n_element lists.
 
     Args:
-        data (Iterable[Any]): Iterable to be slice.
+        data (Iterable[T]): Iterable to be slice.
         n_element (int): how many element will be in each list
 
     Returns:
-        list[list[Any]]: list of list with n_element
+        list[list[T]]: list of list with n_element
     """
     data_list = list(data)
     return [data_list[i : i + n_element] for i in range(0, len(data_list), n_element)]

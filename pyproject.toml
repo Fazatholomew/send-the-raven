@@ -16,6 +16,8 @@ aiohttp = "^3.8.5"
 asyncio = "^3.4.3"
 geopy = "^2.4.0"
 h3 = "^3.7.6"
+sphinx-book-theme = "^1.0.1"
+sphinx-favicon = "^1.0.1"
 
 [tool.poe.tasks]
 test.cmd  = "pytest"
@@ -24,7 +26,6 @@ test.envfile = ".env.dev"
 [tool.poetry.group.dev.dependencies]
 pytest = "^7.3.2"
 coverage = "^7.2.7"
-pydata-sphinx-theme = "^0.13.3"
 poethepoet = "^0.22.0"
 pytest-cov = "^4.1.0"
 pytest-asyncio = "^0.21.1"

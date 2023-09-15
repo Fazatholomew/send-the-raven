@@ -1,4 +1,4 @@
-from pydantic import BaseModel
+import pydantic
 from typing import Optional, Iterable, Any, TypedDict
 from .utils import generate_id
 from multiprocessing import Pool
@@ -11,6 +11,7 @@ from scourgify.exceptions import (
 from difflib import SequenceMatcher
 from re import compile
 from json import load
+from importlib.resources import files
 
 STREET_ADDRESS_NUMBER_REGEX_PATTERN = compile(r"\d+")
 
@@ -29,28 +30,30 @@ class Placemapper(TypedDict):
     """
     Lookup table to perform state, city, or zip code lookups.
 
-    {
-        "states": {
-                "new york: "NY,
-                ...
-                "washington": "WA"
-        },
-        "cities": {
-            "boston": ["ma", "02354"],
-            ...
+    Examples::
+
+        {
+            "states": {
+                    "new york: "NY",
+                    "washington": "WA"
+            },
+            "cities": {
+                "boston": ["ma", "02354"],
+            }
         }
-    }
     """
 
     states: dict[str, str]
     cities: dict[str, list[str]]
 
 
-with open("send_the_raven/states, cities, zipcodes.json") as dict_file:
+with files("send_the_raven").joinpath(
+    "states, cities, zipcodes.json"
+).open() as dict_file:
     GEOGRAPHY_MAPPER: Placemapper = load(dict_file)
 
 
-class Address(BaseModel):
+class Address(pydantic.BaseModel):
     """
     Represents a US address.
 
@@ -133,6 +136,20 @@ class Address(BaseModel):
             self.zip_code = normalized["postal_code"]
 
     def __eq__(self, b) -> bool:
+        """
+        Compare two addresses.
+
+        Args:
+            b (Address): Address object to compare.
+
+        Example:
+            >>> addr1 = Address(street="12 Main St", city="Boston", state="MA")
+            >>> addr2 = Address(street="12 Main Street", city="Boston", state="MA")
+            >>> assert addr1 == addr2
+
+        Returns:
+            bool: True if :py:meth:`~send_the_raven.address.compare` greater than 0.73, False otherwise.
+        """
         return compare(self, b) > 0.73
 
     def fill_in_city(self):
@@ -140,7 +157,14 @@ class Address(BaseModel):
         Try to find the correct city by using difflib SequenceMatcher.
         If the ratio score is above 0.73, it will replace current city with it.
 
-        Expensive operation.
+        Example:
+            >>> addr = Address(city="San Fran")
+            >>> addr.fill_in_city()
+            >>> print(addr.city)
+            San Francisco
+
+        Warning:
+            Expensive operation.
         """
         if self.city is None:
             return
@@ -162,10 +186,13 @@ class Address(BaseModel):
         when zip code is present even though it's the wrong zipcode
         but the city is the same.
 
-        e.g:
-        Boston has 02114, 02205, 02205, etc.
-        It's better to fill in the zip code with 02205 even though the
-        actual address' zip code is 02114 rather than to not fill in.
+        Example:
+            >>> addr = Address(city="San Francisco")
+            >>> print(addr.zipcode)
+            None
+            >>> addr.fill_in_zipcode()
+            >>> print(addr.zipcode)
+            94105
         """
         if self.zip_code is not None:
             if len(self.zip_code) == 5:
@@ -189,6 +216,12 @@ class Address(BaseModel):
         closest one.
 
         USPS needs 2-letter abbreviation.
+
+        Example:
+            >>> addr = Address(state="California")
+            >>> addr.fill_in_state()
+            >>> print(addr.state)
+            CA
         """
         if self.state is None:
             return self.state
@@ -245,7 +278,7 @@ class Addresses:
 
     def normalize(self, number_of_proccesses: int | None):
         """
-        Normalize all addresses in parallel. Uses pool.map().
+        Normalize all addresses in parallel. Uses :py:func:`multiprocessing.Pool.map`.
 
         Args:
             number_of_proccesses (int): number of process
@@ -261,11 +294,9 @@ class Addresses:
         return len(self.addresses)
 
     def __add__(self, b):
-        if self.field_mapping.values() != b.field_mapping.values():
-            raise ValueError("field_mapping must be the same")
         self.addresses = self.addresses + b.addresses
         return self
-    
+
     def __contains__(self, item) -> bool:
         if not isinstance(item, Address):
             raise TypeError("item must be an Address object")
@@ -312,23 +343,28 @@ def _process_street(street: str):
         except ValueError:
             pass
     return (street_numbers, street_name)
-    
 
 
 def compare(a: Address, b: Address) -> float:
     """
-    Compare 2 Address instances using difflib.
-    The comparison will take into account street number,
-    unit, north, south, west, east, etc.
+    This compares two Address objects and returns a similarity score
+    between 0 and 1. The comparison takes into account differences in
+    street number, street name, unit number, etc.
 
-    Please do Address.normalize() first to maximize accuracy.
+    Addresses should be :py:meth:`~send_the_raven.address.Address.normalize` prior to comparing for best results.
     return 0 if either a.street or b.street is None.
     doesn't check full_address
 
-    e.g
-    12 main st, boston, ma -> 12 main street, boston, ma
-    will have higher score than
-    13 main st, boston, ma -> 12 main st, boston, ma
+    Example:
+
+        >>> addr1 = Address(street="12 Main St", city="Boston", state="MA")
+        >>> addr2 = Address(street="12 Main Street", city="Boston", state="MA")
+        >>> addr3 = Address(street="13 Main St", city="Boston", state="MA")
+        >>> assert compare(addr1, addr3) > compare(addr2, addr3)
+
+        The first comparison has a higher score than the second comparison
+        because "12 Main St" is more similar to "12 Main Street" than
+        "13 Main St".
 
 
     Args:
@@ -337,6 +373,9 @@ def compare(a: Address, b: Address) -> float:
 
     returns:
         float: similarity between 0.0 and 1.0
+
+    See Also:
+        :py:meth:`~send_the_raven.address.Address.__eq__`
     """
     if a.street is None or b.street is None:
         return 0.0

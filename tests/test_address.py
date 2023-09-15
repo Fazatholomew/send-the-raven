@@ -1,5 +1,6 @@
-from send_the_raven.address import Address, compare, _process_street
+from send_the_raven.address import Address, compare, _process_street, Addresses
 from unittest.mock import patch
+import pytest
 
 
 def test_id_creation():
@@ -96,6 +97,14 @@ def test_compare():
     )
 
 
+def test_adding_two_addresses():
+    addresses = Addresses(addresses=[Address(), Address()])
+    addresses1 = Addresses(
+        addresses=[Address(), Address()], field_mapping={"zip_code": "zipcode"}
+    )
+    assert len(addresses + addresses1) == 4
+
+
 def test_fill_in_city():
     no_city = Address()
     no_city.fill_in_city()
@@ -122,18 +131,17 @@ def test_fill_in_zipcode():
     four_zipcode.fill_in_zipcode()
     assert four_zipcode.zip_code == "01077"
 
-def test_fill_in_state():
-     no_state = Address()
-     no_state.fill_in_state()
-     assert no_state.state is None
-     washington = Address(state="washington")
-     washington.fill_in_state()
-     assert washington.state == "WA"
-     washington = Address(state="massechusts")
-     washington.fill_in_state()
-     assert washington.state == "MA"
-     washington = Address(state="NY")
-     washington.fill_in_state()
-     assert washington.state == "NY"
 
-     
+def test_fill_in_state():
+    no_state = Address()
+    no_state.fill_in_state()
+    assert no_state.state is None
+    washington = Address(state="washington")
+    washington.fill_in_state()
+    assert washington.state == "WA"
+    washington = Address(state="massechusts")
+    washington.fill_in_state()
+    assert washington.state == "MA"
+    washington = Address(state="NY")
+    washington.fill_in_state()
+    assert washington.state == "NY"

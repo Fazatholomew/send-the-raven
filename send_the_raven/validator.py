@@ -1,10 +1,11 @@
-from .address import Addresses, Address
+from .address import Addresses, Address, DEFAULT_ADDRESS_MAPPING
 from .utils import split_into_n_elements
 from xmltodict import parse, unparse
 from urllib.parse import quote_plus
 from aiohttp import ClientSession
 from aiohttp.connector import TCPConnector
 import asyncio
+from typing import Iterable, Any
 
 XML_DOC = """<?xml version="1.0"?>
               <AddressValidateRequest USERID="{}">
@@ -12,7 +13,7 @@ XML_DOC = """<?xml version="1.0"?>
               </AddressValidateRequest>"""
 
 
-def prepare_xml(current_addresses: list[Address], usps_id: str) -> str:
+def _prepare_xml(current_addresses: list[Address], usps_id: str) -> str:
     """
     Prepare XML based on USPS Standard
     https://www.usps.com/business/web-tools-apis/address-information-api.pdf
@@ -30,7 +31,6 @@ def prepare_xml(current_addresses: list[Address], usps_id: str) -> str:
     xml["AddressValidateRequest"]["@USERID"] = usps_id
     xml["AddressValidateRequest"]["Address"] = []
     for address in current_addresses[:5]:
-        print(address)
         xml["AddressValidateRequest"]["Address"].append(
             {
                 "@ID": address.id,
@@ -47,16 +47,41 @@ def prepare_xml(current_addresses: list[Address], usps_id: str) -> str:
 
 class Validator(Addresses):
     """
-    Class to validate addresses to USPS database.
+    Class to validate addresses to `USPS database <https://www.usps.com/business/web-tools-apis/documentation-updates.htm>`_.
 
     Args:
         data (Addresses): Addresses to validate.
+        usps_id (str): USPS ID to use for validation. Get it `here <https://registration.shippingapis.com/>`_.
+        request_limit (int): Maximum number of requests per second.
 
     Attributes:
         data (list[Address]): full address.
         results (list[Addresses]): validated addresses.
         errors (list[tuple[Address, Exception]]): addresses with errors.
+
+    Example:
+
+        >>> addresses = [
+            {"street": "123 Main St", "city": "Anytown", "state": "CA", "zip": "12345"},
+            {"street": "456 Oak Rd", "city": "Forest", "state": "VT", "zip": "67890"}
+        ]
+        >>> validator = Validator(addresses, usps_id="MY_ID")
+        >>> valid_addresses = validator()
+        >>> for addr in valid_addresses:
+        >>>     print(addr.street, addr.city, addr.state, addr.zip_code)
     """
+
+    def __init__(
+        self,
+        addresses: Iterable[Any],
+        usps_id: str,
+        request_limit: int = 10,
+        field_mapping: dict[str, str] = DEFAULT_ADDRESS_MAPPING,
+    ):
+        super().__init__(addresses, field_mapping)
+        self.usps_id = usps_id
+        self.request_limit = request_limit
+
     async def validate(self, data: list[Address], client: ClientSession):
         """
         Request validation data to USPS database
@@ -65,7 +90,7 @@ class Validator(Addresses):
             data (list[Address]): Addresses to validate.
             client (ClientSession): Initialized aiohttp ClientSession
         """
-        xml_string = prepare_xml(data, self.usps_id)
+        xml_string = _prepare_xml(data, self.usps_id)
         url = f"https://secure.shippingapis.com/ShippingAPI.dll?API=Verify&XML={quote_plus(xml_string)}"
         try:
             res = await client.get(url)
@@ -103,7 +128,7 @@ class Validator(Addresses):
         Initialize aiohttp TCPConnector with limit and ClientSession.
         Start validation in asyncio.
         """
-        connector = TCPConnector(limit_per_host=self.request_limit)
+        connector = TCPConnector(limit_per_host=self.request_limit or 10)
         async with ClientSession(connector=connector) as session:
             await asyncio.gather(
                 *[
@@ -112,7 +137,7 @@ class Validator(Addresses):
                 ]
             )
 
-    def __call__(self, usps_id: str, request_limit: int = 10):
+    def __call__(self):
         """
         Start validation process. Will return after all async process
         are completed.
@@ -124,8 +149,6 @@ class Validator(Addresses):
         returns:
             Addresses: validated addresses.
         """
-        self.usps_id = usps_id
-        self.request_limit = request_limit
         self.results = []
         self.errors = []
         try:
