@@ -1389,6 +1389,20 @@ doc = ["pydata-sphinx-theme", "sphinx (<6)", "sphinx-copybutton", "sphinx-design
 test = ["beautifulsoup4", "pytest", "pytest-cov"]
 
 [[package]]
+name = "sphinx-readme"
+version = "0.2.3"
+description = "Generate Beautiful reStructuredText README.rst for GitHub, PyPi, GitLab, BitBucket"
+optional = false
+python-versions = "*"
+files = [
+    {file = "sphinx-readme-0.2.3.tar.gz", hash = "sha256:ca4aa3a7289a2bd91949da0b4ce629961d73af81ce2f49ccf3223a623e285b03"},
+    {file = "sphinx_readme-0.2.3-py3-none-any.whl", hash = "sha256:b70d5cab47a1cd2ebcc21d46fc556927fcf8a4c2269cb14a86c6cf83f1e9ceb0"},
+]
+
+[package.dependencies]
+sphinx = ">=1.8"
+
+[[package]]
 name = "sphinxcontrib-applehelp"
 version = "1.0.7"
 description = "sphinxcontrib-applehelp is a Sphinx extension which outputs Apple help books"
@@ -1678,4 +1692,4 @@ multidict = ">=4.0"
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "cfa2a01c02302f1361984a322191c1416dbf664cb7d9993e8299ea8f23d4cdb6"
+content-hash = "314b4bac72391a5760ec80fe7b05ba8c144d17dc0ea16306c32be9131daa405f"

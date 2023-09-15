@@ -37,7 +37,8 @@ extensions = [
     "sphinx.ext.napoleon",
     "sphinx.ext.intersphinx",
     "sphinx_favicon",
-    "sphinx.ext.viewcode"
+    "sphinx.ext.viewcode",
+    "sphinx_readme",
 ]
 autosummary_generate = True
 autodoc_typehints = "description"
@@ -96,3 +97,11 @@ favicons = [
     },
     {"rel": "apple-touch-icon", "href": "apple-touch-icon.png", "type": "image/png"},
 ]
+
+html_context = {
+    "display_github": True, # Integrate GitHub
+    "github_user": "MyUserName", # Username
+    "github_repo": "MyDoc", # Repo name
+    "github_version": "master", # Version
+    "conf_py_path": "/source/", # Path in the checkout to the docs root
+}
