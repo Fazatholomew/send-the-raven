@@ -276,7 +276,7 @@ class Addresses:
             for address in addresses
         ]
 
-    def normalize(self, number_of_proccesses: int | None):
+    def normalize(self, number_of_proccesses: int | None = None):
         """
         Normalize all addresses in parallel. Uses :py:func:`multiprocessing.Pool.map`.
 
@@ -296,6 +296,9 @@ class Addresses:
     def __add__(self, b):
         self.addresses = self.addresses + b.addresses
         return self
+    
+    def __getitem__(self, index):
+        return self.addresses[index]
 
     def __contains__(self, item) -> bool:
         if not isinstance(item, Address):

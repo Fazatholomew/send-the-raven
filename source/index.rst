@@ -13,6 +13,7 @@ Features
 - **Address Parsing**: Extract structured information from US addresses, including street names, house numbers, city, state, and ZIP codes.
 - **Address Validation**: Validate US addresses to ensure accuracy and compliance with USPS standards.  
 - **Address Formatting**: Format US addresses in a consistent and standardized manner for various purposes.
+- **Address Geocoding**: Convert US addresses into Longitude and Latitude.
 - **Additional Utilities**: Additional utilities to enhance address handling, such as address comparison, address normalization, and more.
 
 Installation
@@ -27,11 +28,11 @@ send_the_raven can be installed from PyPI:
 Usage
 *****
 
-Here is a quick example of using send_the_raven to validate addresses:
+Here is a quick example of using send_the_raven to validate addresses into USPS Database:
 
 .. code-block:: python
 
-   from send_the_raven import Addresses, Validator
+   from send_the_raven import Validator
    
    addresses = [
       {"street": "123 Main St", "city": "Anytown", "state": "CA", "zip_code": "12345"},
@@ -64,5 +65,6 @@ We thank the developers of these libraries for their contributions.
    :hidden:
    
    Get Started <self>
+   example
    api
    contribute

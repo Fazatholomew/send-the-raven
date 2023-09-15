@@ -1,4 +1,4 @@
-send\_the\_raven.validator.Validator
+﻿send\_the\_raven.validator.Validator
 ====================================
 
 .. currentmodule:: send_the_raven.validator
@@ -19,6 +19,7 @@ send\_the\_raven.validator.Validator
    .. autosummary::
    
       ~Validator.__eq__
+      ~Validator.__getitem__
       ~Validator.__init__
       ~Validator.__iter__
       ~Validator.__len__

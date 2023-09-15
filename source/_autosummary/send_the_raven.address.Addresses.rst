@@ -1,4 +1,4 @@
-send\_the\_raven.address.Addresses
+﻿send\_the\_raven.address.Addresses
 ==================================
 
 .. currentmodule:: send_the_raven.address
@@ -19,6 +19,7 @@ send\_the\_raven.address.Addresses
    .. autosummary::
    
       ~Addresses.__eq__
+      ~Addresses.__getitem__
       ~Addresses.__init__
       ~Addresses.__iter__
       ~Addresses.__len__

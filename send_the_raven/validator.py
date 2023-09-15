@@ -88,7 +88,7 @@ class Validator(Addresses):
 
         Args:
             data (list[Address]): Addresses to validate.
-            client (ClientSession): Initialized aiohttp ClientSession
+            client (aiohttp.ClientSession): Initialized aiohttp ClientSession
         """
         xml_string = _prepare_xml(data, self.usps_id)
         url = f"https://secure.shippingapis.com/ShippingAPI.dll?API=Verify&XML={quote_plus(xml_string)}"
@@ -141,10 +141,6 @@ class Validator(Addresses):
         """
         Start validation process. Will return after all async process
         are completed.
-
-        Args:
-            usps_id (str): Addresses to validate.
-            request_limit (int): Initialized aiohttp ClientSession
 
         returns:
             Addresses: validated addresses.

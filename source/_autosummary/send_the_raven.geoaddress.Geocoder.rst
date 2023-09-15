@@ -1,4 +1,4 @@
-send\_the\_raven.geoaddress.Geocoder
+﻿send\_the\_raven.geoaddress.Geocoder
 ====================================
 
 .. currentmodule:: send_the_raven.geoaddress
@@ -19,6 +19,7 @@ send\_the\_raven.geoaddress.Geocoder
    .. autosummary::
    
       ~Geocoder.__eq__
+      ~Geocoder.__getitem__
       ~Geocoder.__init__
       ~Geocoder.__iter__
       ~Geocoder.__len__
