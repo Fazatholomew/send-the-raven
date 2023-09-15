@@ -27,9 +27,9 @@ coverage = "^7.2.7"
 poethepoet = "^0.22.0"
 pytest-cov = "^4.1.0"
 pytest-asyncio = "^0.21.1"
-sphinx-book-theme = "^1.0.1"
-sphinx-favicon = "^1.0.1"
 sphinx-readme = "^0.2.3"
+sphinx-favicon = "^1.0.1"
+sphinx-book-theme = "^1.0.1"
 
 [build-system]
 requires = ["poetry-core"]
