@@ -3,7 +3,7 @@ name = "send-the-raven"
 version = "0.1.0"
 description = "A collection of toolkit and algorithms for handling US addresses"
 authors = ["Bang Koboi <TheManHimself@jimmyganteng.com>"]
-readme = "README.md"
+readme = "README.rst"
 packages = [{include = "send_the_raven"}]
 include = ["send_the_raven/state and us cities.json"]
 
