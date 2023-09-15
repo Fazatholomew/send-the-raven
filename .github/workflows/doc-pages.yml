@@ -1,7 +1,6 @@
 name: Docs2Pages
 on:
-  push:
-    tags: '*'
+  push
   pull_request:
     branches:
       - main
@@ -16,7 +15,7 @@ jobs:
         fetch-depth: 0
     - uses: actions/setup-python@v2
       with:
-        python-version: 3.10.0
+        python-version: 3.x
     - name: install sphinx
       run: pip install -U sphinx
     - uses: abatilo/actions-poetry@v2.1.3
