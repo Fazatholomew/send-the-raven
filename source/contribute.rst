@@ -3,7 +3,7 @@ Contributing
 
 Contributions to send_the_raven are welcome! Check out the `GitHub repo`_ to get started.
 
-.. _GitHub repo: https://github.com/exampleuser/send_the_raven
+.. _GitHub repo: https://github.com/fazatholomew/send_the_raven
 
 The code is MIT licensed and actively maintained. Please open issues for any bugs or feature requests.
 If you are interested to help people from your own country, please feel free to shoot me an email ``thereverend.sullivan@yahoo.co.id``
@@ -14,7 +14,7 @@ Development
 1. Fork the repository
 -----------------------
 
-Fork the `repository <https://github.com/example/send-the-raven>`_ by clicking "Fork" in the top right corner of the page. This will create a copy of the repository in your own GitHub account.
+Fork the `repository <https://github.com/fazatholomew/send-the-raven>`_ by clicking "Fork" in the top right corner of the page. This will create a copy of the repository in your own GitHub account.
 
 2. Clone your fork locally
 --------------------------
@@ -23,7 +23,7 @@ Clone your forked repository to your local machine:
 
 .. code-block:: bash
 
-   git clone https://github.com/yourusername/send-the-raven
+   git clone https://github.com/fazatholomew/send-the-raven
 
 3. Create a branch
 ------------------
