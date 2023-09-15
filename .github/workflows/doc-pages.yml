@@ -22,7 +22,7 @@ jobs:
       run: pip install -U sphinx
     - uses: snok/install-poetry@v1
     - name: install
-      run: poetry install -E dev
+      run: poetry install --with dev
     - name: Build documentation
       run: |
         mkdir gh-pages

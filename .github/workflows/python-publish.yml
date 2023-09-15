@@ -2,7 +2,7 @@ name: Build and deploy Python package
 
 on:
   release:
-    types: [created]
+    types: [created, edited]
 
 jobs:
   deploy:
