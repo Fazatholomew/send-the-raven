@@ -6,7 +6,7 @@ Send The Raven
 
 Send the Raven is a Python library that provides a comprehensive collection of toolkits and algorithms for handling US addresses. It aims to simplify the process of working with US addresses, offering functionalities such as parsing, validation, formatting, and more.
 
-.. image:: https://raw.githubusercontent.com/Fazatholomew/send-the-raven/7cabf57e3ae50f05a2450c0307856956d5ca60a0/source/_static/d782276f-b708-4c7d-a077-5354d19f06fe.gif
+.. image:: https://raw.githubusercontent.com/Fazatholomew/send-the-raven/2e15fb3149e3f19a11c01d138de4995ba0fffb62/source/_static/d782276f-b708-4c7d-a077-5354d19f06fe.gif
    :alt: Game of Thrones Send the Ravens GIF
    :align: center
 
