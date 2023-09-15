@@ -1,0 +1,1140 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <link rel="icon" href="../_static/favicon.ico" type="image/x-icon">
+    <link rel="icon" sizes="16x16" href="../_static/favicon-16x16.png" type="image/png">
+    <link rel="icon" sizes="32x32" href="../_static/favicon-32x32.png" type="image/png">
+    <link rel="icon" sizes="192x192" href="../_static/favicon-192x192.png" type="image/png">
+    <link rel="icon" sizes="512x512" href="../_static/favicon-512x512.png" type="image/png">
+    <link rel="apple-touch-icon" href="../_static/apple-touch-icon.png" type="image/png" sizes="180x180">
+    <title>send_the_raven.geoaddress.GeoAddress &#8212; Send The Raven</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=927b94d3fcb96560df09" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=927b94d3fcb96560df09" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=927b94d3fcb96560df09" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=927b94d3fcb96560df09" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=927b94d3fcb96560df09" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=927b94d3fcb96560df09" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=927b94d3fcb96560df09"></script>
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_autosummary/send_the_raven.geoaddress.GeoAddress';</script>
+    <link rel="canonical" href="https://send-the-raven.jimmtganteng.com/_autosummary/send_the_raven.geoaddress.GeoAddress.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="send_the_raven.geoaddress.Geocoder" href="send_the_raven.geoaddress.Geocoder.html" />
+    <link rel="prev" title="send_the_raven.geoaddress" href="send_the_raven.geoaddress.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/android-chrome-512x512.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/android-chrome-512x512.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../example.html">Examples</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../api.html">API Reference</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 has-children"><a class="reference internal" href="send_the_raven.address.html">send_the_raven.address</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="send_the_raven.address.compare.html">send_the_raven.address.compare</a></li>
+<li class="toctree-l3"><a class="reference internal" href="send_the_raven.address.Address.html">send_the_raven.address.Address</a></li>
+<li class="toctree-l3"><a class="reference internal" href="send_the_raven.address.Addresses.html">send_the_raven.address.Addresses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="send_the_raven.address.Placemapper.html">send_the_raven.address.Placemapper</a></li>
+</ul>
+</li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="send_the_raven.geoaddress.html">send_the_raven.geoaddress</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">send_the_raven.geoaddress.GeoAddress</a></li>
+<li class="toctree-l3"><a class="reference internal" href="send_the_raven.geoaddress.Geocoder.html">send_the_raven.geoaddress.Geocoder</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="send_the_raven.validator.html">send_the_raven.validator</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="send_the_raven.validator.Validator.html">send_the_raven.validator.Validator</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="send_the_raven.utils.html">send_the_raven.utils</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="send_the_raven.utils.generate_id.html">send_the_raven.utils.generate_id</a></li>
+<li class="toctree-l3"><a class="reference internal" href="send_the_raven.utils.split_into_n_elements.html">send_the_raven.utils.split_into_n_elements</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../contribute.html">Contributing</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/_autosummary/send_the_raven.geoaddress.GeoAddress.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>send_the_raven.geoaddress.GeoAddress</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#send_the_raven.geoaddress.GeoAddress"><code class="docutils literal notranslate"><span class="pre">GeoAddress</span></code></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#send_the_raven.geoaddress.GeoAddress.longitude"><code class="docutils literal notranslate"><span class="pre">GeoAddress.longitude</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#send_the_raven.geoaddress.GeoAddress.latitude"><code class="docutils literal notranslate"><span class="pre">GeoAddress.latitude</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#send_the_raven.geoaddress.GeoAddress.h3_index"><code class="docutils literal notranslate"><span class="pre">GeoAddress.h3_index</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#send_the_raven.geoaddress.GeoAddress.h3_resolution"><code class="docutils literal notranslate"><span class="pre">GeoAddress.h3_resolution</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#send_the_raven.geoaddress.GeoAddress.__init__"><code class="docutils literal notranslate"><span class="pre">GeoAddress.__init__()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#send_the_raven.geoaddress.GeoAddress.__call__"><code class="docutils literal notranslate"><span class="pre">GeoAddress.__call__()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id0"><code class="docutils literal notranslate"><span class="pre">GeoAddress.__init__()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#send_the_raven.geoaddress.GeoAddress.calculate_h3_index"><code class="docutils literal notranslate"><span class="pre">GeoAddress.calculate_h3_index()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#send_the_raven.geoaddress.GeoAddress.copy"><code class="docutils literal notranslate"><span class="pre">GeoAddress.copy()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#send_the_raven.geoaddress.GeoAddress.fill_in_city"><code class="docutils literal notranslate"><span class="pre">GeoAddress.fill_in_city()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#send_the_raven.geoaddress.GeoAddress.fill_in_state"><code class="docutils literal notranslate"><span class="pre">GeoAddress.fill_in_state()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#send_the_raven.geoaddress.GeoAddress.fill_in_zipcode"><code class="docutils literal notranslate"><span class="pre">GeoAddress.fill_in_zipcode()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#send_the_raven.geoaddress.GeoAddress.model_computed_fields"><code class="docutils literal notranslate"><span class="pre">GeoAddress.model_computed_fields</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#send_the_raven.geoaddress.GeoAddress.model_config"><code class="docutils literal notranslate"><span class="pre">GeoAddress.model_config</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#send_the_raven.geoaddress.GeoAddress.model_construct"><code class="docutils literal notranslate"><span class="pre">GeoAddress.model_construct()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#send_the_raven.geoaddress.GeoAddress.model_copy"><code class="docutils literal notranslate"><span class="pre">GeoAddress.model_copy()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#send_the_raven.geoaddress.GeoAddress.model_dump"><code class="docutils literal notranslate"><span class="pre">GeoAddress.model_dump()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#send_the_raven.geoaddress.GeoAddress.model_dump_json"><code class="docutils literal notranslate"><span class="pre">GeoAddress.model_dump_json()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#send_the_raven.geoaddress.GeoAddress.model_extra"><code class="docutils literal notranslate"><span class="pre">GeoAddress.model_extra</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#send_the_raven.geoaddress.GeoAddress.model_fields"><code class="docutils literal notranslate"><span class="pre">GeoAddress.model_fields</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#send_the_raven.geoaddress.GeoAddress.model_fields_set"><code class="docutils literal notranslate"><span class="pre">GeoAddress.model_fields_set</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#send_the_raven.geoaddress.GeoAddress.model_json_schema"><code class="docutils literal notranslate"><span class="pre">GeoAddress.model_json_schema()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#send_the_raven.geoaddress.GeoAddress.model_parametrized_name"><code class="docutils literal notranslate"><span class="pre">GeoAddress.model_parametrized_name()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#send_the_raven.geoaddress.GeoAddress.model_post_init"><code class="docutils literal notranslate"><span class="pre">GeoAddress.model_post_init()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#send_the_raven.geoaddress.GeoAddress.model_rebuild"><code class="docutils literal notranslate"><span class="pre">GeoAddress.model_rebuild()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#send_the_raven.geoaddress.GeoAddress.model_validate"><code class="docutils literal notranslate"><span class="pre">GeoAddress.model_validate()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#send_the_raven.geoaddress.GeoAddress.model_validate_json"><code class="docutils literal notranslate"><span class="pre">GeoAddress.model_validate_json()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#send_the_raven.geoaddress.GeoAddress.normalize"><code class="docutils literal notranslate"><span class="pre">GeoAddress.normalize()</span></code></a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="send-the-raven-geoaddress-geoaddress">
+<h1>send_the_raven.geoaddress.GeoAddress<a class="headerlink" href="#send-the-raven-geoaddress-geoaddress" title="Permalink to this heading">#</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="send_the_raven.geoaddress.GeoAddress">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">send_the_raven.geoaddress.</span></span><span class="sig-name descname"><span class="pre">GeoAddress</span></span><a class="reference internal" href="../_modules/send_the_raven/geoaddress.html#GeoAddress"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#send_the_raven.geoaddress.GeoAddress" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="send_the_raven.address.Address.html#send_the_raven.address.Address" title="send_the_raven.address.Address"><code class="xref py py-class docutils literal notranslate"><span class="pre">Address</span></code></a></p>
+<p>Represents a US address with geographic information and methods.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>longitude</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – longitude</p></li>
+<li><p><strong>latitude</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><em>float</em></a>) – latitude</p></li>
+<li><p><strong>h3_index</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – index generated from h3</p></li>
+<li><p><strong>h3_resolution</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – resolution used to generate h3_index</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="send_the_raven.geoaddress.GeoAddress.longitude">
+<span class="sig-name descname"><span class="pre">longitude</span></span><a class="headerlink" href="#send_the_raven.geoaddress.GeoAddress.longitude" title="Permalink to this definition">#</a></dt>
+<dd><p>longitude</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)">float</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="send_the_raven.geoaddress.GeoAddress.latitude">
+<span class="sig-name descname"><span class="pre">latitude</span></span><a class="headerlink" href="#send_the_raven.geoaddress.GeoAddress.latitude" title="Permalink to this definition">#</a></dt>
+<dd><p>latitude</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)">float</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="send_the_raven.geoaddress.GeoAddress.h3_index">
+<span class="sig-name descname"><span class="pre">h3_index</span></span><a class="headerlink" href="#send_the_raven.geoaddress.GeoAddress.h3_index" title="Permalink to this definition">#</a></dt>
+<dd><p>index generated from h3</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)">str</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="send_the_raven.geoaddress.GeoAddress.h3_resolution">
+<span class="sig-name descname"><span class="pre">h3_resolution</span></span><a class="headerlink" href="#send_the_raven.geoaddress.GeoAddress.h3_resolution" title="Permalink to this definition">#</a></dt>
+<dd><p>resolution used to generate h3_index</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)">int</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="send_the_raven.geoaddress.GeoAddress.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#send_the_raven.geoaddress.GeoAddress.__init__" title="Permalink to this definition">#</a></dt>
+<dd><p>Create a new model by parsing and validating input data from keyword arguments.</p>
+<p>Raises [<cite>ValidationError</cite>][pydantic_core.ValidationError] if the input data cannot be
+validated to form a valid model.</p>
+<p><cite>__init__</cite> uses <cite>__pydantic_self__</cite> instead of the more common <cite>self</cite> for the first arg to
+allow <cite>self</cite> as a field name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>data</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.11)"><em>Any</em></a>) – </p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="send_the_raven.geoaddress.GeoAddress.__call__">
+<span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#send_the_raven.geoaddress.GeoAddress.__call__" title="Permalink to this definition">#</a></dt>
+<dd><p>Call self as a function.</p>
+</dd></dl>
+
+<p class="rubric">Methods</p>
+<table class="autosummary longtable table autosummary">
+<tbody>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">__eq__</span></code>(b)</p></td>
+<td><p>Compare addresses using H3 index.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#id0" title="send_the_raven.geoaddress.GeoAddress.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(**data)</p></td>
+<td><p>Create a new model by parsing and validating input data from keyword arguments.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">__iter__</span></code>()</p></td>
+<td><p>So <cite>dict(model)</cite> works.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#send_the_raven.geoaddress.GeoAddress.calculate_h3_index" title="send_the_raven.geoaddress.GeoAddress.calculate_h3_index"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calculate_h3_index</span></code></a>()</p></td>
+<td><p>Calculate <a class="reference external" href="https://h3geo.org/docs/core-library/h3Indexing/">h3_index</a></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">construct</span></code>([_fields_set])</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#send_the_raven.geoaddress.GeoAddress.copy" title="send_the_raven.geoaddress.GeoAddress.copy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">copy</span></code></a>(*[, include, exclude, update, deep])</p></td>
+<td><p>Returns a copy of the model.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">dict</span></code>(*[, include, exclude, by_alias, ...])</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#send_the_raven.geoaddress.GeoAddress.fill_in_city" title="send_the_raven.geoaddress.GeoAddress.fill_in_city"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fill_in_city</span></code></a>()</p></td>
+<td><p>Try to find the correct city by using difflib SequenceMatcher.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#send_the_raven.geoaddress.GeoAddress.fill_in_state" title="send_the_raven.geoaddress.GeoAddress.fill_in_state"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fill_in_state</span></code></a>()</p></td>
+<td><p>Try to convert state into its 2-letter abbreviation.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#send_the_raven.geoaddress.GeoAddress.fill_in_zipcode" title="send_the_raven.geoaddress.GeoAddress.fill_in_zipcode"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fill_in_zipcode</span></code></a>()</p></td>
+<td><p>Try to find the correct zipcode using city.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">from_orm</span></code>(obj)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">json</span></code>(*[, include, exclude, by_alias, ...])</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#send_the_raven.geoaddress.GeoAddress.model_construct" title="send_the_raven.geoaddress.GeoAddress.model_construct"><code class="xref py py-obj docutils literal notranslate"><span class="pre">model_construct</span></code></a>([_fields_set])</p></td>
+<td><p>Creates a new instance of the <cite>Model</cite> class with validated data.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#send_the_raven.geoaddress.GeoAddress.model_copy" title="send_the_raven.geoaddress.GeoAddress.model_copy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">model_copy</span></code></a>(*[, update, deep])</p></td>
+<td><p>Usage docs: <a class="reference external" href="https://docs.pydantic.dev/2.2/usage/serialization/#model_copy">https://docs.pydantic.dev/2.2/usage/serialization/#model_copy</a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#send_the_raven.geoaddress.GeoAddress.model_dump" title="send_the_raven.geoaddress.GeoAddress.model_dump"><code class="xref py py-obj docutils literal notranslate"><span class="pre">model_dump</span></code></a>(*[, mode, include, exclude, ...])</p></td>
+<td><p>Usage docs: <a class="reference external" href="https://docs.pydantic.dev/2.2/usage/serialization/#modelmodel_dump">https://docs.pydantic.dev/2.2/usage/serialization/#modelmodel_dump</a></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#send_the_raven.geoaddress.GeoAddress.model_dump_json" title="send_the_raven.geoaddress.GeoAddress.model_dump_json"><code class="xref py py-obj docutils literal notranslate"><span class="pre">model_dump_json</span></code></a>(*[, indent, include, ...])</p></td>
+<td><p>Usage docs: <a class="reference external" href="https://docs.pydantic.dev/2.2/usage/serialization/#modelmodel_dump_json">https://docs.pydantic.dev/2.2/usage/serialization/#modelmodel_dump_json</a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#send_the_raven.geoaddress.GeoAddress.model_json_schema" title="send_the_raven.geoaddress.GeoAddress.model_json_schema"><code class="xref py py-obj docutils literal notranslate"><span class="pre">model_json_schema</span></code></a>([by_alias, ref_template, ...])</p></td>
+<td><p>Generates a JSON schema for a model class.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#send_the_raven.geoaddress.GeoAddress.model_parametrized_name" title="send_the_raven.geoaddress.GeoAddress.model_parametrized_name"><code class="xref py py-obj docutils literal notranslate"><span class="pre">model_parametrized_name</span></code></a>(params)</p></td>
+<td><p>Compute the class name for parametrizations of generic classes.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#send_the_raven.geoaddress.GeoAddress.model_post_init" title="send_the_raven.geoaddress.GeoAddress.model_post_init"><code class="xref py py-obj docutils literal notranslate"><span class="pre">model_post_init</span></code></a>(_BaseModel__context)</p></td>
+<td><p>Override this method to perform additional initialization after <cite>__init__</cite> and <cite>model_construct</cite>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#send_the_raven.geoaddress.GeoAddress.model_rebuild" title="send_the_raven.geoaddress.GeoAddress.model_rebuild"><code class="xref py py-obj docutils literal notranslate"><span class="pre">model_rebuild</span></code></a>(*[, force, raise_errors, ...])</p></td>
+<td><p>Try to rebuild the pydantic-core schema for the model.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#send_the_raven.geoaddress.GeoAddress.model_validate" title="send_the_raven.geoaddress.GeoAddress.model_validate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">model_validate</span></code></a>(obj, *[, strict, ...])</p></td>
+<td><p>Validate a pydantic model instance.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#send_the_raven.geoaddress.GeoAddress.model_validate_json" title="send_the_raven.geoaddress.GeoAddress.model_validate_json"><code class="xref py py-obj docutils literal notranslate"><span class="pre">model_validate_json</span></code></a>(json_data, *[, strict, ...])</p></td>
+<td><p>Validate the given JSON data against the Pydantic model.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#send_the_raven.geoaddress.GeoAddress.normalize" title="send_the_raven.geoaddress.GeoAddress.normalize"><code class="xref py py-obj docutils literal notranslate"><span class="pre">normalize</span></code></a>()</p></td>
+<td><p>Normalize address using <a class="github reference external" href="https://github.com/GreenBuildingRegistry/usaddress-scourgify/">GreenBuildingRegistry/usaddress-scourgify</a></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">parse_file</span></code>(path, *[, content_type, ...])</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">parse_obj</span></code>(obj)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">parse_raw</span></code>(b, *[, content_type, encoding, ...])</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">schema</span></code>([by_alias, ref_template])</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">schema_json</span></code>(*[, by_alias, ref_template])</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">update_forward_refs</span></code>(**localns)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">validate</span></code>(value)</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Attributes</p>
+<table class="autosummary longtable table autosummary">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#send_the_raven.geoaddress.GeoAddress.model_computed_fields" title="send_the_raven.geoaddress.GeoAddress.model_computed_fields"><code class="xref py py-obj docutils literal notranslate"><span class="pre">model_computed_fields</span></code></a></p></td>
+<td><p>Get the computed fields of this model instance.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#send_the_raven.geoaddress.GeoAddress.model_config" title="send_the_raven.geoaddress.GeoAddress.model_config"><code class="xref py py-obj docutils literal notranslate"><span class="pre">model_config</span></code></a></p></td>
+<td><p>Configuration for the model, should be a dictionary conforming to [<cite>ConfigDict</cite>][pydantic.config.ConfigDict].</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#send_the_raven.geoaddress.GeoAddress.model_extra" title="send_the_raven.geoaddress.GeoAddress.model_extra"><code class="xref py py-obj docutils literal notranslate"><span class="pre">model_extra</span></code></a></p></td>
+<td><p>Get extra fields set during validation.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#send_the_raven.geoaddress.GeoAddress.model_fields" title="send_the_raven.geoaddress.GeoAddress.model_fields"><code class="xref py py-obj docutils literal notranslate"><span class="pre">model_fields</span></code></a></p></td>
+<td><p>Metadata about the fields defined on the model, mapping of field names to [<cite>FieldInfo</cite>][pydantic.fields.FieldInfo].</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#send_the_raven.geoaddress.GeoAddress.model_fields_set" title="send_the_raven.geoaddress.GeoAddress.model_fields_set"><code class="xref py py-obj docutils literal notranslate"><span class="pre">model_fields_set</span></code></a></p></td>
+<td><p>Returns the set of fields that have been set on this model instance.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#send_the_raven.geoaddress.GeoAddress.longitude" title="send_the_raven.geoaddress.GeoAddress.longitude"><code class="xref py py-obj docutils literal notranslate"><span class="pre">longitude</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#send_the_raven.geoaddress.GeoAddress.latitude" title="send_the_raven.geoaddress.GeoAddress.latitude"><code class="xref py py-obj docutils literal notranslate"><span class="pre">latitude</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#send_the_raven.geoaddress.GeoAddress.h3_index" title="send_the_raven.geoaddress.GeoAddress.h3_index"><code class="xref py py-obj docutils literal notranslate"><span class="pre">h3_index</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#send_the_raven.geoaddress.GeoAddress.h3_resolution" title="send_the_raven.geoaddress.GeoAddress.h3_resolution"><code class="xref py py-obj docutils literal notranslate"><span class="pre">h3_resolution</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">full_address</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">street</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">address_line_2</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">city</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">state</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">zip_code</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">id</span></code></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py method">
+<dt class="sig sig-object py" id="id0">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id0" title="Permalink to this definition">#</a></dt>
+<dd><p>Create a new model by parsing and validating input data from keyword arguments.</p>
+<p>Raises [<cite>ValidationError</cite>][pydantic_core.ValidationError] if the input data cannot be
+validated to form a valid model.</p>
+<p><cite>__init__</cite> uses <cite>__pydantic_self__</cite> instead of the more common <cite>self</cite> for the first arg to
+allow <cite>self</cite> as a field name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>data</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.11)"><em>Any</em></a>) – </p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="send_the_raven.geoaddress.GeoAddress.calculate_h3_index">
+<span class="sig-name descname"><span class="pre">calculate_h3_index</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/send_the_raven/geoaddress.html#GeoAddress.calculate_h3_index"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#send_the_raven.geoaddress.GeoAddress.calculate_h3_index" title="Permalink to this definition">#</a></dt>
+<dd><p>Calculate <a class="reference external" href="https://h3geo.org/docs/core-library/h3Indexing/">h3_index</a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)">str</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="send_the_raven.geoaddress.GeoAddress.copy">
+<span class="sig-name descname"><span class="pre">copy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exclude</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">update</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">deep</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#send_the_raven.geoaddress.GeoAddress.copy" title="Permalink to this definition">#</a></dt>
+<dd><p>Returns a copy of the model.</p>
+<dl class="simple">
+<dt>!!! warning “Deprecated”</dt><dd><p>This method is now deprecated; use <cite>model_copy</cite> instead.</p>
+</dd>
+</dl>
+<p>If you need <cite>include</cite> or <cite>exclude</cite>, use:</p>
+<p><code class="docutils literal notranslate"><span class="pre">`py</span>
+<span class="pre">data</span> <span class="pre">=</span> <span class="pre">self.model_dump(include=include,</span> <span class="pre">exclude=exclude,</span> <span class="pre">round_trip=True)</span>
+<span class="pre">data</span> <span class="pre">=</span> <span class="pre">{**data,</span> <span class="pre">**(update</span> <span class="pre">or</span> <span class="pre">{})}</span>
+<span class="pre">copied</span> <span class="pre">=</span> <span class="pre">self.model_validate(data)</span>
+<span class="pre">`</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>include</strong> (<em>AbstractSetIntStr</em><em> | </em><em>MappingIntStrAny</em><em> | </em><em>None</em>) – Optional set or mapping
+specifying which fields to include in the copied model.</p></li>
+<li><p><strong>exclude</strong> (<em>AbstractSetIntStr</em><em> | </em><em>MappingIntStrAny</em><em> | </em><em>None</em>) – Optional set or mapping
+specifying which fields to exclude in the copied model.</p></li>
+<li><p><strong>update</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Dict" title="(in Python v3.11)"><em>Dict</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a><em>, </em><em>Any</em><em>] </em><em>| </em><em>None</em>) – Optional dictionary of field-value pairs to override field values
+in the copied model.</p></li>
+<li><p><strong>deep</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><em>bool</em></a>) – If True, the values of fields that are Pydantic models will be deep copied.</p></li>
+<li><p><strong>self</strong> (<em>Model</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A copy of the model with included, excluded and updated fields as specified.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Model</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="send_the_raven.geoaddress.GeoAddress.fill_in_city">
+<span class="sig-name descname"><span class="pre">fill_in_city</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#send_the_raven.geoaddress.GeoAddress.fill_in_city" title="Permalink to this definition">#</a></dt>
+<dd><p>Try to find the correct city by using difflib SequenceMatcher.
+If the ratio score is above 0.73, it will replace current city with it.</p>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">addr</span> <span class="o">=</span> <span class="n">Address</span><span class="p">(</span><span class="n">city</span><span class="o">=</span><span class="s2">&quot;San Fran&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">addr</span><span class="o">.</span><span class="n">fill_in_city</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">addr</span><span class="o">.</span><span class="n">city</span><span class="p">)</span>
+<span class="go">San Francisco</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Expensive operation.</p>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="send_the_raven.geoaddress.GeoAddress.fill_in_state">
+<span class="sig-name descname"><span class="pre">fill_in_state</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#send_the_raven.geoaddress.GeoAddress.fill_in_state" title="Permalink to this definition">#</a></dt>
+<dd><p>Try to convert state into its 2-letter abbreviation.
+If not found, use SequenceMatcher to find the
+closest one.</p>
+<p>USPS needs 2-letter abbreviation.</p>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">addr</span> <span class="o">=</span> <span class="n">Address</span><span class="p">(</span><span class="n">state</span><span class="o">=</span><span class="s2">&quot;California&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">addr</span><span class="o">.</span><span class="n">fill_in_state</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">addr</span><span class="o">.</span><span class="n">state</span><span class="p">)</span>
+<span class="go">CA</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="send_the_raven.geoaddress.GeoAddress.fill_in_zipcode">
+<span class="sig-name descname"><span class="pre">fill_in_zipcode</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#send_the_raven.geoaddress.GeoAddress.fill_in_zipcode" title="Permalink to this definition">#</a></dt>
+<dd><p>Try to find the correct zipcode using city.
+USPS validation will have more successful rate
+when zip code is present even though it’s the wrong zipcode
+but the city is the same.</p>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">addr</span> <span class="o">=</span> <span class="n">Address</span><span class="p">(</span><span class="n">city</span><span class="o">=</span><span class="s2">&quot;San Francisco&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">addr</span><span class="o">.</span><span class="n">zipcode</span><span class="p">)</span>
+<span class="go">None</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">addr</span><span class="o">.</span><span class="n">fill_in_zipcode</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">addr</span><span class="o">.</span><span class="n">zipcode</span><span class="p">)</span>
+<span class="go">94105</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="send_the_raven.geoaddress.GeoAddress.model_computed_fields">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">model_computed_fields</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><span class="pre">dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.pydantic.dev/2.3/api/fields/#pydantic.fields.ComputedFieldInfo" title="(in Pydantic v0.0.0)"><span class="pre">pydantic.fields.ComputedFieldInfo</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#send_the_raven.geoaddress.GeoAddress.model_computed_fields" title="Permalink to this definition">#</a></dt>
+<dd><p>Get the computed fields of this model instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A dictionary of computed field names and their corresponding <cite>ComputedFieldInfo</cite> objects.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="send_the_raven.geoaddress.GeoAddress.model_config">
+<span class="sig-name descname"><span class="pre">model_config</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">ConfigDict</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{}</span></em><a class="headerlink" href="#send_the_raven.geoaddress.GeoAddress.model_config" title="Permalink to this definition">#</a></dt>
+<dd><p>Configuration for the model, should be a dictionary conforming to [<cite>ConfigDict</cite>][pydantic.config.ConfigDict].</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="send_the_raven.geoaddress.GeoAddress.model_construct">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">model_construct</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">_fields_set</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">values</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#send_the_raven.geoaddress.GeoAddress.model_construct" title="Permalink to this definition">#</a></dt>
+<dd><p>Creates a new instance of the <cite>Model</cite> class with validated data.</p>
+<p>Creates a new model setting <cite>__dict__</cite> and <cite>__pydantic_fields_set__</cite> from trusted or pre-validated data.
+Default values are respected, but no other validation is performed.
+Behaves as if <cite>Config.extra = ‘allow’</cite> was set since it adds all passed values</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>_fields_set</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#set" title="(in Python v3.11)"><em>set</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a><em>] </em><em>| </em><em>None</em>) – The set of field names accepted for the Model instance.</p></li>
+<li><p><strong>values</strong> (<em>Any</em>) – Trusted or pre-validated data dictionary.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A new instance of the <cite>Model</cite> class with validated data.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Model</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="send_the_raven.geoaddress.GeoAddress.model_copy">
+<span class="sig-name descname"><span class="pre">model_copy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">update</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">deep</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#send_the_raven.geoaddress.GeoAddress.model_copy" title="Permalink to this definition">#</a></dt>
+<dd><p>Usage docs: <a class="reference external" href="https://docs.pydantic.dev/2.2/usage/serialization/#model_copy">https://docs.pydantic.dev/2.2/usage/serialization/#model_copy</a></p>
+<p>Returns a copy of the model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>update</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><em>dict</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a><em>, </em><em>Any</em><em>] </em><em>| </em><em>None</em>) – Values to change/add in the new model. Note: the data is not validated
+before creating the new model. You should trust this data.</p></li>
+<li><p><strong>deep</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><em>bool</em></a>) – Set to <cite>True</cite> to make a deep copy of the model.</p></li>
+<li><p><strong>self</strong> (<em>Model</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>New model instance.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Model</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="send_the_raven.geoaddress.GeoAddress.model_dump">
+<span class="sig-name descname"><span class="pre">model_dump</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'python'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exclude</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">by_alias</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exclude_unset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exclude_defaults</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exclude_none</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">round_trip</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">warnings</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#send_the_raven.geoaddress.GeoAddress.model_dump" title="Permalink to this definition">#</a></dt>
+<dd><p>Usage docs: <a class="reference external" href="https://docs.pydantic.dev/2.2/usage/serialization/#modelmodel_dump">https://docs.pydantic.dev/2.2/usage/serialization/#modelmodel_dump</a></p>
+<p>Generate a dictionary representation of the model, optionally specifying which fields to include or exclude.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mode</strong> (<em>Literal</em><em>[</em><em>'json'</em><em>, </em><em>'python'</em><em>] </em><em>| </em><em>str</em>) – The mode in which <cite>to_python</cite> should run.
+If mode is ‘json’, the dictionary will only contain JSON serializable types.
+If mode is ‘python’, the dictionary may contain any Python objects.</p></li>
+<li><p><strong>include</strong> (<em>IncEx</em>) – A list of fields to include in the output.</p></li>
+<li><p><strong>exclude</strong> (<em>IncEx</em>) – A list of fields to exclude from the output.</p></li>
+<li><p><strong>by_alias</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><em>bool</em></a>) – Whether to use the field’s alias in the dictionary key if defined.</p></li>
+<li><p><strong>exclude_unset</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><em>bool</em></a>) – Whether to exclude fields that are unset or None from the output.</p></li>
+<li><p><strong>exclude_defaults</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><em>bool</em></a>) – Whether to exclude fields that are set to their default value from the output.</p></li>
+<li><p><strong>exclude_none</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><em>bool</em></a>) – Whether to exclude fields that have a value of <cite>None</cite> from the output.</p></li>
+<li><p><strong>round_trip</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><em>bool</em></a>) – Whether to enable serialization and deserialization round-trip support.</p></li>
+<li><p><strong>warnings</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><em>bool</em></a>) – Whether to log warnings when invalid fields are encountered.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary representation of the model.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)">dict</a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)">str</a>, Any]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="send_the_raven.geoaddress.GeoAddress.model_dump_json">
+<span class="sig-name descname"><span class="pre">model_dump_json</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">indent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exclude</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">by_alias</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exclude_unset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exclude_defaults</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exclude_none</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">round_trip</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">warnings</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#send_the_raven.geoaddress.GeoAddress.model_dump_json" title="Permalink to this definition">#</a></dt>
+<dd><p>Usage docs: <a class="reference external" href="https://docs.pydantic.dev/2.2/usage/serialization/#modelmodel_dump_json">https://docs.pydantic.dev/2.2/usage/serialization/#modelmodel_dump_json</a></p>
+<p>Generates a JSON representation of the model using Pydantic’s <cite>to_json</cite> method.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>indent</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em> | </em><em>None</em>) – Indentation to use in the JSON output. If None is passed, the output will be compact.</p></li>
+<li><p><strong>include</strong> (<em>IncEx</em>) – Field(s) to include in the JSON output. Can take either a string or set of strings.</p></li>
+<li><p><strong>exclude</strong> (<em>IncEx</em>) – Field(s) to exclude from the JSON output. Can take either a string or set of strings.</p></li>
+<li><p><strong>by_alias</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><em>bool</em></a>) – Whether to serialize using field aliases.</p></li>
+<li><p><strong>exclude_unset</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><em>bool</em></a>) – Whether to exclude fields that have not been explicitly set.</p></li>
+<li><p><strong>exclude_defaults</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><em>bool</em></a>) – Whether to exclude fields that have the default value.</p></li>
+<li><p><strong>exclude_none</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><em>bool</em></a>) – Whether to exclude fields that have a value of <cite>None</cite>.</p></li>
+<li><p><strong>round_trip</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><em>bool</em></a>) – Whether to use serialization/deserialization between JSON and class instance.</p></li>
+<li><p><strong>warnings</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><em>bool</em></a>) – Whether to show any warnings that occurred during serialization.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A JSON string representation of the model.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)">str</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="send_the_raven.geoaddress.GeoAddress.model_extra">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">model_extra</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><span class="pre">dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.11)"><span class="pre">Any</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.11)"><span class="pre">None</span></a></em><a class="headerlink" href="#send_the_raven.geoaddress.GeoAddress.model_extra" title="Permalink to this definition">#</a></dt>
+<dd><p>Get extra fields set during validation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A dictionary of extra fields, or <cite>None</cite> if <cite>config.extra</cite> is not set to <cite>“allow”</cite>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="send_the_raven.geoaddress.GeoAddress.model_fields">
+<span class="sig-name descname"><span class="pre">model_fields</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><span class="pre">dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">FieldInfo</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'address_line_2':</span> <span class="pre">FieldInfo(annotation=Union[str,</span> <span class="pre">NoneType],</span> <span class="pre">required=False),</span> <span class="pre">'city':</span> <span class="pre">FieldInfo(annotation=Union[str,</span> <span class="pre">NoneType],</span> <span class="pre">required=False),</span> <span class="pre">'full_address':</span> <span class="pre">FieldInfo(annotation=Union[str,</span> <span class="pre">NoneType],</span> <span class="pre">required=False),</span> <span class="pre">'h3_index':</span> <span class="pre">FieldInfo(annotation=Union[str,</span> <span class="pre">NoneType],</span> <span class="pre">required=False),</span> <span class="pre">'h3_resolution':</span> <span class="pre">FieldInfo(annotation=Union[int,</span> <span class="pre">NoneType],</span> <span class="pre">required=False,</span> <span class="pre">default=13),</span> <span class="pre">'id':</span> <span class="pre">FieldInfo(annotation=Union[str,</span> <span class="pre">NoneType],</span> <span class="pre">required=False,</span> <span class="pre">default='5a84a0b0939fe2e'),</span> <span class="pre">'latitude':</span> <span class="pre">FieldInfo(annotation=Union[float,</span> <span class="pre">NoneType],</span> <span class="pre">required=False),</span> <span class="pre">'longitude':</span> <span class="pre">FieldInfo(annotation=Union[float,</span> <span class="pre">NoneType],</span> <span class="pre">required=False),</span> <span class="pre">'state':</span> <span class="pre">FieldInfo(annotation=Union[str,</span> <span class="pre">NoneType],</span> <span class="pre">required=False),</span> <span class="pre">'street':</span> <span class="pre">FieldInfo(annotation=Union[str,</span> <span class="pre">NoneType],</span> <span class="pre">required=False),</span> <span class="pre">'zip_code':</span> <span class="pre">FieldInfo(annotation=Union[str,</span> <span class="pre">NoneType],</span> <span class="pre">required=False)}</span></em><a class="headerlink" href="#send_the_raven.geoaddress.GeoAddress.model_fields" title="Permalink to this definition">#</a></dt>
+<dd><p>Metadata about the fields defined on the model,
+mapping of field names to [<cite>FieldInfo</cite>][pydantic.fields.FieldInfo].</p>
+<p>This replaces <cite>Model.__fields__</cite> from Pydantic V1.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="send_the_raven.geoaddress.GeoAddress.model_fields_set">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">model_fields_set</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#set" title="(in Python v3.11)"><span class="pre">set</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#send_the_raven.geoaddress.GeoAddress.model_fields_set" title="Permalink to this definition">#</a></dt>
+<dd><p>Returns the set of fields that have been set on this model instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><dl class="simple">
+<dt>A set of strings representing the fields that have been set,</dt><dd><p>i.e. that were not filled from defaults.</p>
+</dd>
+</dl>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="send_the_raven.geoaddress.GeoAddress.model_json_schema">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">model_json_schema</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">by_alias=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ref_template='#/$defs/{model}'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">schema_generator=&lt;class</span> <span class="pre">'pydantic.json_schema.GenerateJsonSchema'&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode='validation'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#send_the_raven.geoaddress.GeoAddress.model_json_schema" title="Permalink to this definition">#</a></dt>
+<dd><p>Generates a JSON schema for a model class.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>by_alias</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><em>bool</em></a>) – Whether to use attribute aliases or not.</p></li>
+<li><p><strong>ref_template</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a>) – The reference template.</p></li>
+<li><p><strong>schema_generator</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#type" title="(in Python v3.11)"><em>type</em></a><em>[</em><a class="reference external" href="https://docs.pydantic.dev/2.3/api/json_schema/#pydantic.json_schema.GenerateJsonSchema" title="(in Pydantic v0.0.0)"><em>pydantic.json_schema.GenerateJsonSchema</em></a><em>]</em>) – To override the logic used to generate the JSON schema, as a subclass of
+<cite>GenerateJsonSchema</cite> with your desired modifications</p></li>
+<li><p><strong>mode</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Literal" title="(in Python v3.11)"><em>Literal</em></a><em>[</em><em>'validation'</em><em>, </em><em>'serialization'</em><em>]</em>) – The mode in which to generate the schema.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The JSON schema for the given model class.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)">dict</a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)">str</a>, <a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.11)"><em>Any</em></a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="send_the_raven.geoaddress.GeoAddress.model_parametrized_name">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">model_parametrized_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">params</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#send_the_raven.geoaddress.GeoAddress.model_parametrized_name" title="Permalink to this definition">#</a></dt>
+<dd><p>Compute the class name for parametrizations of generic classes.</p>
+<p>This method can be overridden to achieve a custom naming scheme for generic BaseModels.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>params</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.11)"><em>tuple</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#type" title="(in Python v3.11)"><em>type</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.11)"><em>Any</em></a><em>]</em><em>, </em><em>...</em><em>]</em>) – Tuple of types of the class. Given a generic class
+<cite>Model</cite> with 2 type variables and a concrete model <cite>Model[str, int]</cite>,
+the value <cite>(str, int)</cite> would be passed to <cite>params</cite>.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>String representing the new class where <cite>params</cite> are passed to <cite>cls</cite> as type variables.</p>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#TypeError" title="(in Python v3.11)"><strong>TypeError</strong></a> – Raised when trying to generate concrete names for non-generic models.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)">str</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="send_the_raven.geoaddress.GeoAddress.model_post_init">
+<span class="sig-name descname"><span class="pre">model_post_init</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">_BaseModel__context</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#send_the_raven.geoaddress.GeoAddress.model_post_init" title="Permalink to this definition">#</a></dt>
+<dd><p>Override this method to perform additional initialization after <cite>__init__</cite> and <cite>model_construct</cite>.
+This is useful if you want to do some validation that requires the entire model to be initialized.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>_BaseModel__context</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.11)"><em>Any</em></a>) – </p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="send_the_raven.geoaddress.GeoAddress.model_rebuild">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">model_rebuild</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">raise_errors</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_parent_namespace_depth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_types_namespace</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#send_the_raven.geoaddress.GeoAddress.model_rebuild" title="Permalink to this definition">#</a></dt>
+<dd><p>Try to rebuild the pydantic-core schema for the model.</p>
+<p>This may be necessary when one of the annotations is a ForwardRef which could not be resolved during
+the initial attempt to build the schema, and automatic rebuilding fails.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>force</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><em>bool</em></a>) – Whether to force the rebuilding of the model schema, defaults to <cite>False</cite>.</p></li>
+<li><p><strong>raise_errors</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><em>bool</em></a>) – Whether to raise errors, defaults to <cite>True</cite>.</p></li>
+<li><p><strong>_parent_namespace_depth</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – The depth level of the parent namespace, defaults to 2.</p></li>
+<li><p><strong>_types_namespace</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><em>dict</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.11)"><em>Any</em></a><em>] </em><em>| </em><em>None</em>) – The types namespace, defaults to <cite>None</cite>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Returns <cite>None</cite> if the schema is already “complete” and rebuilding was not required.
+If rebuilding _was_ required, returns <cite>True</cite> if rebuilding was successful, otherwise <cite>False</cite>.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)">bool</a> | None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="send_the_raven.geoaddress.GeoAddress.model_validate">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">model_validate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">strict</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">from_attributes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#send_the_raven.geoaddress.GeoAddress.model_validate" title="Permalink to this definition">#</a></dt>
+<dd><p>Validate a pydantic model instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>obj</strong> (<em>Any</em>) – The object to validate.</p></li>
+<li><p><strong>strict</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><em>bool</em></a><em> | </em><em>None</em>) – Whether to raise an exception on invalid fields.</p></li>
+<li><p><strong>from_attributes</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><em>bool</em></a><em> | </em><em>None</em>) – Whether to extract data from object attributes.</p></li>
+<li><p><strong>context</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><em>dict</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a><em>, </em><em>Any</em><em>] </em><em>| </em><em>None</em>) – Additional context to pass to the validator.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValidationError</strong> – If the object could not be validated.</p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The validated model instance.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>Model</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="send_the_raven.geoaddress.GeoAddress.model_validate_json">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">model_validate_json</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">json_data</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">strict</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">context</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#send_the_raven.geoaddress.GeoAddress.model_validate_json" title="Permalink to this definition">#</a></dt>
+<dd><p>Validate the given JSON data against the Pydantic model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>json_data</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a><em> | </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bytes" title="(in Python v3.11)"><em>bytes</em></a><em> | </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bytearray" title="(in Python v3.11)"><em>bytearray</em></a>) – The JSON data to validate.</p></li>
+<li><p><strong>strict</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><em>bool</em></a><em> | </em><em>None</em>) – Whether to enforce types strictly.</p></li>
+<li><p><strong>context</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><em>dict</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a><em>, </em><em>Any</em><em>] </em><em>| </em><em>None</em>) – Extra variables to pass to the validator.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The validated Pydantic model.</p>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.11)"><strong>ValueError</strong></a> – If <cite>json_data</cite> is not a JSON string.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>Model</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="send_the_raven.geoaddress.GeoAddress.normalize">
+<span class="sig-name descname"><span class="pre">normalize</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#send_the_raven.geoaddress.GeoAddress.normalize" title="Permalink to this definition">#</a></dt>
+<dd><p>Normalize address
+using <a class="github reference external" href="https://github.com/GreenBuildingRegistry/usaddress-scourgify/">GreenBuildingRegistry/usaddress-scourgify</a></p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="send_the_raven.geoaddress.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">send_the_raven.geoaddress</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="send_the_raven.geoaddress.Geocoder.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">send_the_raven.geoaddress.Geocoder</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#send_the_raven.geoaddress.GeoAddress"><code class="docutils literal notranslate"><span class="pre">GeoAddress</span></code></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#send_the_raven.geoaddress.GeoAddress.longitude"><code class="docutils literal notranslate"><span class="pre">GeoAddress.longitude</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#send_the_raven.geoaddress.GeoAddress.latitude"><code class="docutils literal notranslate"><span class="pre">GeoAddress.latitude</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#send_the_raven.geoaddress.GeoAddress.h3_index"><code class="docutils literal notranslate"><span class="pre">GeoAddress.h3_index</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#send_the_raven.geoaddress.GeoAddress.h3_resolution"><code class="docutils literal notranslate"><span class="pre">GeoAddress.h3_resolution</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#send_the_raven.geoaddress.GeoAddress.__init__"><code class="docutils literal notranslate"><span class="pre">GeoAddress.__init__()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#send_the_raven.geoaddress.GeoAddress.__call__"><code class="docutils literal notranslate"><span class="pre">GeoAddress.__call__()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id0"><code class="docutils literal notranslate"><span class="pre">GeoAddress.__init__()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#send_the_raven.geoaddress.GeoAddress.calculate_h3_index"><code class="docutils literal notranslate"><span class="pre">GeoAddress.calculate_h3_index()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#send_the_raven.geoaddress.GeoAddress.copy"><code class="docutils literal notranslate"><span class="pre">GeoAddress.copy()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#send_the_raven.geoaddress.GeoAddress.fill_in_city"><code class="docutils literal notranslate"><span class="pre">GeoAddress.fill_in_city()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#send_the_raven.geoaddress.GeoAddress.fill_in_state"><code class="docutils literal notranslate"><span class="pre">GeoAddress.fill_in_state()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#send_the_raven.geoaddress.GeoAddress.fill_in_zipcode"><code class="docutils literal notranslate"><span class="pre">GeoAddress.fill_in_zipcode()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#send_the_raven.geoaddress.GeoAddress.model_computed_fields"><code class="docutils literal notranslate"><span class="pre">GeoAddress.model_computed_fields</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#send_the_raven.geoaddress.GeoAddress.model_config"><code class="docutils literal notranslate"><span class="pre">GeoAddress.model_config</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#send_the_raven.geoaddress.GeoAddress.model_construct"><code class="docutils literal notranslate"><span class="pre">GeoAddress.model_construct()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#send_the_raven.geoaddress.GeoAddress.model_copy"><code class="docutils literal notranslate"><span class="pre">GeoAddress.model_copy()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#send_the_raven.geoaddress.GeoAddress.model_dump"><code class="docutils literal notranslate"><span class="pre">GeoAddress.model_dump()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#send_the_raven.geoaddress.GeoAddress.model_dump_json"><code class="docutils literal notranslate"><span class="pre">GeoAddress.model_dump_json()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#send_the_raven.geoaddress.GeoAddress.model_extra"><code class="docutils literal notranslate"><span class="pre">GeoAddress.model_extra</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#send_the_raven.geoaddress.GeoAddress.model_fields"><code class="docutils literal notranslate"><span class="pre">GeoAddress.model_fields</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#send_the_raven.geoaddress.GeoAddress.model_fields_set"><code class="docutils literal notranslate"><span class="pre">GeoAddress.model_fields_set</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#send_the_raven.geoaddress.GeoAddress.model_json_schema"><code class="docutils literal notranslate"><span class="pre">GeoAddress.model_json_schema()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#send_the_raven.geoaddress.GeoAddress.model_parametrized_name"><code class="docutils literal notranslate"><span class="pre">GeoAddress.model_parametrized_name()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#send_the_raven.geoaddress.GeoAddress.model_post_init"><code class="docutils literal notranslate"><span class="pre">GeoAddress.model_post_init()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#send_the_raven.geoaddress.GeoAddress.model_rebuild"><code class="docutils literal notranslate"><span class="pre">GeoAddress.model_rebuild()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#send_the_raven.geoaddress.GeoAddress.model_validate"><code class="docutils literal notranslate"><span class="pre">GeoAddress.model_validate()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#send_the_raven.geoaddress.GeoAddress.model_validate_json"><code class="docutils literal notranslate"><span class="pre">GeoAddress.model_validate_json()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#send_the_raven.geoaddress.GeoAddress.normalize"><code class="docutils literal notranslate"><span class="pre">GeoAddress.normalize()</span></code></a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Jimmy Hikmatullah
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2023, Jimmy Hikmatullah.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=927b94d3fcb96560df09"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=927b94d3fcb96560df09"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,737 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>send_the_raven.address &#8212; Send The Raven</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=927b94d3fcb96560df09" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=927b94d3fcb96560df09" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=927b94d3fcb96560df09" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=927b94d3fcb96560df09" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=927b94d3fcb96560df09" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=927b94d3fcb96560df09" />
+  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=927b94d3fcb96560df09"></script>
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/send_the_raven/address';</script>
+    <link rel="canonical" href="https://send-the-raven.jimmtganteng.com/_modules/send_the_raven/address.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/android-chrome-512x512.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../../_static/android-chrome-512x512.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../example.html">Examples</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../api.html">API Reference</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../_autosummary/send_the_raven.address.html">send_the_raven.address</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../_autosummary/send_the_raven.address.compare.html">send_the_raven.address.compare</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../_autosummary/send_the_raven.address.Address.html">send_the_raven.address.Address</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../_autosummary/send_the_raven.address.Addresses.html">send_the_raven.address.Addresses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../_autosummary/send_the_raven.address.Placemapper.html">send_the_raven.address.Placemapper</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../_autosummary/send_the_raven.geoaddress.html">send_the_raven.geoaddress</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../_autosummary/send_the_raven.geoaddress.GeoAddress.html">send_the_raven.geoaddress.GeoAddress</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../_autosummary/send_the_raven.geoaddress.Geocoder.html">send_the_raven.geoaddress.Geocoder</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../_autosummary/send_the_raven.validator.html">send_the_raven.validator</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../_autosummary/send_the_raven.validator.Validator.html">send_the_raven.validator.Validator</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../_autosummary/send_the_raven.utils.html">send_the_raven.utils</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../_autosummary/send_the_raven.utils.generate_id.html">send_the_raven.utils.generate_id</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../_autosummary/send_the_raven.utils.split_into_n_elements.html">send_the_raven.utils.split_into_n_elements</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../contribute.html">Contributing</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <h1>Source code for send_the_raven.address</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">pydantic</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Iterable</span><span class="p">,</span> <span class="n">Any</span><span class="p">,</span> <span class="n">TypedDict</span>
+<span class="kn">from</span> <span class="nn">.utils</span> <span class="kn">import</span> <span class="n">generate_id</span>
+<span class="kn">from</span> <span class="nn">multiprocessing</span> <span class="kn">import</span> <span class="n">Pool</span>
+<span class="kn">from</span> <span class="nn">scourgify</span> <span class="kn">import</span> <span class="n">normalize_address_record</span>
+<span class="kn">from</span> <span class="nn">scourgify.exceptions</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">UnParseableAddressError</span><span class="p">,</span>
+    <span class="n">AmbiguousAddressError</span><span class="p">,</span>
+    <span class="n">AddressNormalizationError</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">difflib</span> <span class="kn">import</span> <span class="n">SequenceMatcher</span>
+<span class="kn">from</span> <span class="nn">re</span> <span class="kn">import</span> <span class="nb">compile</span>
+<span class="kn">from</span> <span class="nn">json</span> <span class="kn">import</span> <span class="n">load</span>
+<span class="kn">from</span> <span class="nn">importlib.resources</span> <span class="kn">import</span> <span class="n">files</span>
+
+<span class="n">STREET_ADDRESS_NUMBER_REGEX_PATTERN</span> <span class="o">=</span> <span class="nb">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\d+&quot;</span><span class="p">)</span>
+
+<span class="n">DEFAULT_ADDRESS_MAPPING</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;full_address&quot;</span><span class="p">:</span> <span class="s2">&quot;full_address&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;street&quot;</span><span class="p">:</span> <span class="s2">&quot;street&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;address_line_2&quot;</span><span class="p">:</span> <span class="s2">&quot;address_line_2&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;city&quot;</span><span class="p">:</span> <span class="s2">&quot;city&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;state&quot;</span><span class="p">:</span> <span class="s2">&quot;state&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;zip_code&quot;</span><span class="p">:</span> <span class="s2">&quot;zip_code&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;id&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+
+
+<div class="viewcode-block" id="Placemapper"><a class="viewcode-back" href="../../_autosummary/send_the_raven.address.Placemapper.html#send_the_raven.address.Placemapper">[docs]</a><span class="k">class</span> <span class="nc">Placemapper</span><span class="p">(</span><span class="n">TypedDict</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Lookup table to perform state, city, or zip code lookups.</span>
+
+<span class="sd">    Examples::</span>
+
+<span class="sd">        {</span>
+<span class="sd">            &quot;states&quot;: {</span>
+<span class="sd">                    &quot;new york: &quot;NY&quot;,</span>
+<span class="sd">                    &quot;washington&quot;: &quot;WA&quot;</span>
+<span class="sd">            },</span>
+<span class="sd">            &quot;cities&quot;: {</span>
+<span class="sd">                &quot;boston&quot;: [&quot;ma&quot;, &quot;02354&quot;],</span>
+<span class="sd">            }</span>
+<span class="sd">        }</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">states</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span>
+    <span class="n">cities</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span></div>
+
+
+<span class="k">with</span> <span class="n">files</span><span class="p">(</span><span class="s2">&quot;send_the_raven&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span>
+    <span class="s2">&quot;states, cities, zipcodes.json&quot;</span>
+<span class="p">)</span><span class="o">.</span><span class="n">open</span><span class="p">()</span> <span class="k">as</span> <span class="n">dict_file</span><span class="p">:</span>
+    <span class="n">GEOGRAPHY_MAPPER</span><span class="p">:</span> <span class="n">Placemapper</span> <span class="o">=</span> <span class="n">load</span><span class="p">(</span><span class="n">dict_file</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="Address"><a class="viewcode-back" href="../../_autosummary/send_the_raven.address.Address.html#send_the_raven.address.Address">[docs]</a><span class="k">class</span> <span class="nc">Address</span><span class="p">(</span><span class="n">pydantic</span><span class="o">.</span><span class="n">BaseModel</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Represents a US address.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        full_address (str): full address.</span>
+<span class="sd">        street (str): The street name and number.</span>
+<span class="sd">        address_line_2 (str): The second line of the address.</span>
+<span class="sd">        city (str): The city name.</span>
+<span class="sd">        state (str): The state or province name.</span>
+<span class="sd">        zip_code (str): The ZIP code or postal code.</span>
+<span class="sd">        id (str): The address ID. If not present, one will be generated to keep track of the address.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        full_address (str): full address.</span>
+<span class="sd">        street (str): The street name and number.</span>
+<span class="sd">        address_line_2 (str): The second line of the address.</span>
+<span class="sd">        city (str): The city name.</span>
+<span class="sd">        state (str): The state or province name.</span>
+<span class="sd">        zip_code (str): The ZIP code or postal code.</span>
+<span class="sd">        id (str): The address ID.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">full_address</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">street</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">address_line_2</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">city</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">state</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">zip_code</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="nb">id</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">generate_id</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Generates the full address from the address fields.</span>
+<span class="sd">        Omitting empty or None value.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">not_empty_values</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="n">value</span>
+            <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="p">[</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">street</span><span class="p">,</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">address_line_2</span><span class="p">,</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">city</span><span class="p">,</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="p">,</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">zip_code</span><span class="p">,</span>
+            <span class="p">]</span>
+            <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">value</span> <span class="o">!=</span> <span class="s2">&quot;&quot;</span>
+        <span class="p">]</span>
+        <span class="k">return</span> <span class="s2">&quot;, &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">not_empty_values</span><span class="p">)</span>
+
+<div class="viewcode-block" id="Address.normalize"><a class="viewcode-back" href="../../_autosummary/send_the_raven.address.Address.html#send_the_raven.address.Address.normalize">[docs]</a>    <span class="k">def</span> <span class="nf">normalize</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Normalize address</span>
+<span class="sd">        using https://github.com/GreenBuildingRegistry/usaddress-scourgify/</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">normalized</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">normalized</span> <span class="o">=</span> <span class="n">normalize_address_record</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">full_address</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">full_address</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+                <span class="k">else</span> <span class="p">{</span>
+                    <span class="s2">&quot;address_line_1&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">street</span> <span class="ow">or</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;address_line_2&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">address_line_2</span> <span class="ow">or</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;city&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">city</span> <span class="ow">or</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;state&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">state</span> <span class="ow">or</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;zip_code&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">zip_code</span> <span class="ow">or</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                <span class="p">}</span>
+            <span class="p">)</span>
+
+        <span class="k">except</span> <span class="p">(</span>
+            <span class="n">UnParseableAddressError</span><span class="p">,</span>
+            <span class="n">AmbiguousAddressError</span><span class="p">,</span>
+            <span class="n">AddressNormalizationError</span><span class="p">,</span>
+        <span class="p">)</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">args</span><span class="p">)</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+                <span class="n">normalized</span> <span class="o">=</span> <span class="n">e</span><span class="o">.</span><span class="n">args</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">normalized</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">street</span> <span class="o">=</span> <span class="n">normalized</span><span class="p">[</span><span class="s2">&quot;address_line_1&quot;</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">address_line_2</span> <span class="o">=</span> <span class="n">normalized</span><span class="p">[</span><span class="s2">&quot;address_line_2&quot;</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">city</span> <span class="o">=</span> <span class="n">normalized</span><span class="p">[</span><span class="s2">&quot;city&quot;</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">state</span> <span class="o">=</span> <span class="n">normalized</span><span class="p">[</span><span class="s2">&quot;state&quot;</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">zip_code</span> <span class="o">=</span> <span class="n">normalized</span><span class="p">[</span><span class="s2">&quot;postal_code&quot;</span><span class="p">]</span></div>
+
+    <span class="k">def</span> <span class="fm">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Compare two addresses.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            b (Address): Address object to compare.</span>
+
+<span class="sd">        Example:</span>
+<span class="sd">            &gt;&gt;&gt; addr1 = Address(street=&quot;12 Main St&quot;, city=&quot;Boston&quot;, state=&quot;MA&quot;)</span>
+<span class="sd">            &gt;&gt;&gt; addr2 = Address(street=&quot;12 Main Street&quot;, city=&quot;Boston&quot;, state=&quot;MA&quot;)</span>
+<span class="sd">            &gt;&gt;&gt; assert addr1 == addr2</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            bool: True if :py:meth:`~send_the_raven.address.compare` greater than 0.73, False otherwise.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">compare</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mf">0.73</span>
+
+<div class="viewcode-block" id="Address.fill_in_city"><a class="viewcode-back" href="../../_autosummary/send_the_raven.address.Address.html#send_the_raven.address.Address.fill_in_city">[docs]</a>    <span class="k">def</span> <span class="nf">fill_in_city</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Try to find the correct city by using difflib SequenceMatcher.</span>
+<span class="sd">        If the ratio score is above 0.73, it will replace current city with it.</span>
+
+<span class="sd">        Example:</span>
+<span class="sd">            &gt;&gt;&gt; addr = Address(city=&quot;San Fran&quot;)</span>
+<span class="sd">            &gt;&gt;&gt; addr.fill_in_city()</span>
+<span class="sd">            &gt;&gt;&gt; print(addr.city)</span>
+<span class="sd">            San Francisco</span>
+
+<span class="sd">        Warning:</span>
+<span class="sd">            Expensive operation.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">city</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span>
+        <span class="n">highest</span> <span class="o">=</span> <span class="mf">0.0</span>
+        <span class="n">current_city</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">city</span> <span class="ow">in</span> <span class="n">GEOGRAPHY_MAPPER</span><span class="p">[</span><span class="s2">&quot;cities&quot;</span><span class="p">]:</span>
+            <span class="n">score</span> <span class="o">=</span> <span class="n">SequenceMatcher</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">city</span><span class="o">.</span><span class="n">lower</span><span class="p">(),</span> <span class="n">city</span><span class="p">)</span><span class="o">.</span><span class="n">ratio</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">score</span> <span class="o">&gt;</span> <span class="n">highest</span><span class="p">:</span>
+                <span class="n">highest</span> <span class="o">=</span> <span class="n">score</span>
+                <span class="n">current_city</span> <span class="o">=</span> <span class="n">city</span>
+        <span class="k">if</span> <span class="n">highest</span> <span class="o">&gt;</span> <span class="mf">0.73</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">city</span> <span class="o">=</span> <span class="n">current_city</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">city</span></div>
+
+<div class="viewcode-block" id="Address.fill_in_zipcode"><a class="viewcode-back" href="../../_autosummary/send_the_raven.address.Address.html#send_the_raven.address.Address.fill_in_zipcode">[docs]</a>    <span class="k">def</span> <span class="nf">fill_in_zipcode</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Try to find the correct zipcode using city.</span>
+<span class="sd">        USPS validation will have more successful rate</span>
+<span class="sd">        when zip code is present even though it&#39;s the wrong zipcode</span>
+<span class="sd">        but the city is the same.</span>
+
+<span class="sd">        Example:</span>
+<span class="sd">            &gt;&gt;&gt; addr = Address(city=&quot;San Francisco&quot;)</span>
+<span class="sd">            &gt;&gt;&gt; print(addr.zipcode)</span>
+<span class="sd">            None</span>
+<span class="sd">            &gt;&gt;&gt; addr.fill_in_zipcode()</span>
+<span class="sd">            &gt;&gt;&gt; print(addr.zipcode)</span>
+<span class="sd">            94105</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">zip_code</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">zip_code</span><span class="p">)</span> <span class="o">==</span> <span class="mi">5</span><span class="p">:</span>
+                <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">zip_code</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">zip_code</span><span class="p">)</span> <span class="o">==</span> <span class="mi">4</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">zip_code</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;0</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">zip_code</span><span class="si">}</span><span class="s2">&quot;</span>
+                <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">zip_code</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">city</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">zip_code</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">city</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">in</span> <span class="n">GEOGRAPHY_MAPPER</span><span class="p">[</span><span class="s2">&quot;cities&quot;</span><span class="p">]:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">zip_code</span> <span class="o">=</span> <span class="n">GEOGRAPHY_MAPPER</span><span class="p">[</span><span class="s2">&quot;cities&quot;</span><span class="p">][</span><span class="bp">self</span><span class="o">.</span><span class="n">city</span><span class="o">.</span><span class="n">lower</span><span class="p">()][</span><span class="mi">1</span><span class="p">]</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">zip_code</span></div>
+
+<div class="viewcode-block" id="Address.fill_in_state"><a class="viewcode-back" href="../../_autosummary/send_the_raven.address.Address.html#send_the_raven.address.Address.fill_in_state">[docs]</a>    <span class="k">def</span> <span class="nf">fill_in_state</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Try to convert state into its 2-letter abbreviation.</span>
+<span class="sd">        If not found, use SequenceMatcher to find the</span>
+<span class="sd">        closest one.</span>
+
+<span class="sd">        USPS needs 2-letter abbreviation.</span>
+
+<span class="sd">        Example:</span>
+<span class="sd">            &gt;&gt;&gt; addr = Address(state=&quot;California&quot;)</span>
+<span class="sd">            &gt;&gt;&gt; addr.fill_in_state()</span>
+<span class="sd">            &gt;&gt;&gt; print(addr.state)</span>
+<span class="sd">            CA</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">state</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">state</span>
+
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">state</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">in</span> <span class="n">GEOGRAPHY_MAPPER</span><span class="p">[</span><span class="s2">&quot;states&quot;</span><span class="p">]:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">state</span> <span class="o">=</span> <span class="n">GEOGRAPHY_MAPPER</span><span class="p">[</span><span class="s2">&quot;states&quot;</span><span class="p">][</span><span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">lower</span><span class="p">()]</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">state</span>
+
+        <span class="n">highest</span> <span class="o">=</span> <span class="mf">0.0</span>
+        <span class="n">current_state</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">state</span> <span class="ow">in</span> <span class="n">GEOGRAPHY_MAPPER</span><span class="p">[</span><span class="s2">&quot;states&quot;</span><span class="p">]:</span>
+            <span class="n">score</span> <span class="o">=</span> <span class="n">SequenceMatcher</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">lower</span><span class="p">(),</span> <span class="n">state</span><span class="p">)</span><span class="o">.</span><span class="n">ratio</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">score</span> <span class="o">&gt;</span> <span class="n">highest</span><span class="p">:</span>
+                <span class="n">highest</span> <span class="o">=</span> <span class="n">score</span>
+                <span class="n">current_state</span> <span class="o">=</span> <span class="n">state</span>
+        <span class="k">if</span> <span class="n">highest</span> <span class="o">&gt;</span> <span class="mf">0.73</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">state</span> <span class="o">=</span> <span class="n">GEOGRAPHY_MAPPER</span><span class="p">[</span><span class="s2">&quot;states&quot;</span><span class="p">][</span><span class="n">current_state</span><span class="p">]</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">state</span></div></div>
+
+
+<div class="viewcode-block" id="Addresses"><a class="viewcode-back" href="../../_autosummary/send_the_raven.address.Addresses.html#send_the_raven.address.Addresses">[docs]</a><span class="k">class</span> <span class="nc">Addresses</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Represents a list of addresses.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        addresses (iterable): iterable of any to construct Address object.</span>
+<span class="sd">        field_mapping (dict): A dictionary of field names to be used when constructing the Address objects.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        addresses (list[Address]): A list of Address objects.</span>
+<span class="sd">        field_mapping (dict): A dictionary of field names to be used when constructing the Address objects.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="Addresses.__init__"><a class="viewcode-back" href="../../_autosummary/send_the_raven.address.Addresses.html#send_the_raven.address.Addresses.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">addresses</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">[</span><span class="n">Any</span><span class="p">],</span>
+        <span class="n">field_mapping</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">DEFAULT_ADDRESS_MAPPING</span><span class="p">,</span>
+    <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">field_mapping</span> <span class="o">=</span> <span class="n">field_mapping</span>
+        <span class="k">for</span> <span class="n">field</span> <span class="ow">in</span> <span class="n">DEFAULT_ADDRESS_MAPPING</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">field</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">field_mapping</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">field_mapping</span><span class="p">[</span><span class="n">field</span><span class="p">]</span> <span class="o">=</span> <span class="n">field</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">addresses</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="n">Address</span><span class="p">(</span>
+                <span class="o">**</span><span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">address</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">field_mapping</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">address</span><span class="p">}</span>
+            <span class="p">)</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">address</span><span class="p">,</span> <span class="n">Address</span><span class="p">)</span>
+            <span class="k">else</span> <span class="n">address</span>
+            <span class="k">for</span> <span class="n">address</span> <span class="ow">in</span> <span class="n">addresses</span>
+        <span class="p">]</span></div>
+
+<div class="viewcode-block" id="Addresses.normalize"><a class="viewcode-back" href="../../_autosummary/send_the_raven.address.Addresses.html#send_the_raven.address.Addresses.normalize">[docs]</a>    <span class="k">def</span> <span class="nf">normalize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">number_of_proccesses</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Normalize all addresses in parallel. Uses :py:func:`multiprocessing.Pool.map`.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            number_of_proccesses (int): number of process</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">with</span> <span class="n">Pool</span><span class="p">(</span><span class="n">number_of_proccesses</span><span class="p">)</span> <span class="k">as</span> <span class="n">pool</span><span class="p">:</span>
+            <span class="n">pool</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">normalize</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">addresses</span><span class="p">)</span></div>
+
+    <span class="k">def</span> <span class="fm">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">iter</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">addresses</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">addresses</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__add__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">addresses</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">addresses</span> <span class="o">+</span> <span class="n">b</span><span class="o">.</span><span class="n">addresses</span>
+        <span class="k">return</span> <span class="bp">self</span>
+    
+    <span class="k">def</span> <span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">addresses</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="fm">__contains__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="n">Address</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;item must be an Address object&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">item</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">addresses</span></div>
+
+
+<span class="k">def</span> <span class="nf">_process_street</span><span class="p">(</span><span class="n">street</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Extract street into components for comparing purposes.</span>
+<span class="sd">    Also extracting address number such as 151-153 boston ave</span>
+<span class="sd">    into a list of numbers [151, 153]</span>
+
+<span class="sd">    e.g</span>
+<span class="sd">    12 main st -&gt; ([12], &#39;main st&#39;)</span>
+<span class="sd">    12-16 main st -&gt; ([12, 14, 16], &#39;main st&#39;)</span>
+<span class="sd">    12 16 main st -&gt; ([12, 14, 16], &#39;main st&#39;)</span>
+
+
+<span class="sd">    Args:</span>
+<span class="sd">        street (str): street string to extract</span>
+
+
+<span class="sd">    returns:</span>
+<span class="sd">        tuple[list[int], str]: street number and street name</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">splitted</span> <span class="o">=</span> <span class="n">street</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
+    <span class="n">street_number</span> <span class="o">=</span> <span class="n">splitted</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">splitted</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">splitted</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">isdigit</span><span class="p">():</span>
+        <span class="n">street_number</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">splitted</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">splitted</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="n">street_name</span> <span class="o">=</span> <span class="n">street</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">street_number</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+    <span class="n">street_numbers</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">STREET_ADDRESS_NUMBER_REGEX_PATTERN</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span>
+        <span class="n">street_number</span>
+    <span class="p">)</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">street_numbers</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">already_sorted</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">street_numbers</span><span class="p">)</span>
+            <span class="n">upper</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">already_sorted</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+            <span class="n">lower</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">already_sorted</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+            <span class="k">if</span> <span class="n">upper</span> <span class="o">-</span> <span class="n">lower</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">number</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">lower</span><span class="p">,</span> <span class="n">upper</span> <span class="o">+</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span>
+                    <span class="n">current_number</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">number</span><span class="si">}</span><span class="s2">&quot;</span>
+                    <span class="k">if</span> <span class="n">current_number</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">street_numbers</span><span class="p">:</span>
+                        <span class="n">street_numbers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">current_number</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+            <span class="k">pass</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">street_numbers</span><span class="p">,</span> <span class="n">street_name</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="compare"><a class="viewcode-back" href="../../_autosummary/send_the_raven.address.compare.html#send_the_raven.address.compare">[docs]</a><span class="k">def</span> <span class="nf">compare</span><span class="p">(</span><span class="n">a</span><span class="p">:</span> <span class="n">Address</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="n">Address</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This compares two Address objects and returns a similarity score</span>
+<span class="sd">    between 0 and 1. The comparison takes into account differences in</span>
+<span class="sd">    street number, street name, unit number, etc.</span>
+
+<span class="sd">    Addresses should be :py:meth:`~send_the_raven.address.Address.normalize` prior to comparing for best results.</span>
+<span class="sd">    return 0 if either a.street or b.street is None.</span>
+<span class="sd">    doesn&#39;t check full_address</span>
+
+<span class="sd">    Example:</span>
+
+<span class="sd">        &gt;&gt;&gt; addr1 = Address(street=&quot;12 Main St&quot;, city=&quot;Boston&quot;, state=&quot;MA&quot;)</span>
+<span class="sd">        &gt;&gt;&gt; addr2 = Address(street=&quot;12 Main Street&quot;, city=&quot;Boston&quot;, state=&quot;MA&quot;)</span>
+<span class="sd">        &gt;&gt;&gt; addr3 = Address(street=&quot;13 Main St&quot;, city=&quot;Boston&quot;, state=&quot;MA&quot;)</span>
+<span class="sd">        &gt;&gt;&gt; assert compare(addr1, addr3) &gt; compare(addr2, addr3)</span>
+
+<span class="sd">        The first comparison has a higher score than the second comparison</span>
+<span class="sd">        because &quot;12 Main St&quot; is more similar to &quot;12 Main Street&quot; than</span>
+<span class="sd">        &quot;13 Main St&quot;.</span>
+
+
+<span class="sd">    Args:</span>
+<span class="sd">        a,b (Address): Address to compare</span>
+
+
+<span class="sd">    returns:</span>
+<span class="sd">        float: similarity between 0.0 and 1.0</span>
+
+<span class="sd">    See Also:</span>
+<span class="sd">        :py:meth:`~send_the_raven.address.Address.__eq__`</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">a</span><span class="o">.</span><span class="n">street</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">b</span><span class="o">.</span><span class="n">street</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mf">0.0</span>
+
+    <span class="c1"># process street</span>
+    <span class="n">street_number1</span><span class="p">,</span> <span class="n">street_name1</span> <span class="o">=</span> <span class="n">_process_street</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">street</span><span class="p">)</span>
+    <span class="n">street_number2</span><span class="p">,</span> <span class="n">street_name2</span> <span class="o">=</span> <span class="n">_process_street</span><span class="p">(</span><span class="n">b</span><span class="o">.</span><span class="n">street</span><span class="p">)</span>
+    <span class="n">scores</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="c1"># compare street number</span>
+    <span class="k">if</span> <span class="nb">any</span><span class="p">([</span><span class="n">number</span> <span class="ow">in</span> <span class="n">street_number2</span> <span class="k">for</span> <span class="n">number</span> <span class="ow">in</span> <span class="n">street_number1</span><span class="p">]):</span>
+        <span class="n">scores</span> <span class="o">+=</span> <span class="mi">1</span>
+
+    <span class="k">for</span> <span class="n">current_element1</span><span class="p">,</span> <span class="n">current_element2</span> <span class="ow">in</span> <span class="p">[</span>
+        <span class="p">(</span><span class="n">street_name1</span><span class="p">,</span> <span class="n">street_name2</span><span class="p">),</span>
+        <span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">address_line_2</span><span class="p">,</span> <span class="n">b</span><span class="o">.</span><span class="n">address_line_2</span><span class="p">),</span>
+        <span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">city</span><span class="p">,</span> <span class="n">b</span><span class="o">.</span><span class="n">city</span><span class="p">),</span>
+        <span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">zip_code</span><span class="p">,</span> <span class="n">b</span><span class="o">.</span><span class="n">zip_code</span><span class="p">),</span>
+    <span class="p">]:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">current_element1</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">current_element2</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">):</span>
+            <span class="n">scores</span> <span class="o">+=</span> <span class="n">SequenceMatcher</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">current_element1</span><span class="p">,</span> <span class="n">current_element2</span><span class="p">)</span><span class="o">.</span><span class="n">ratio</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="n">scores</span> <span class="o">/</span> <span class="mi">5</span></div>
+</pre></div>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Jimmy Hikmatullah
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2023, Jimmy Hikmatullah.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=927b94d3fcb96560df09"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=927b94d3fcb96560df09"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

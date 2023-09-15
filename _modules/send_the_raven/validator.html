@@ -1,0 +1,488 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>send_the_raven.validator &#8212; Send The Raven</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=927b94d3fcb96560df09" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=927b94d3fcb96560df09" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=927b94d3fcb96560df09" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=927b94d3fcb96560df09" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=927b94d3fcb96560df09" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=927b94d3fcb96560df09" />
+  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=927b94d3fcb96560df09"></script>
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/send_the_raven/validator';</script>
+    <link rel="canonical" href="https://send-the-raven.jimmtganteng.com/_modules/send_the_raven/validator.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/android-chrome-512x512.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../../_static/android-chrome-512x512.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../example.html">Examples</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../api.html">API Reference</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../_autosummary/send_the_raven.address.html">send_the_raven.address</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../_autosummary/send_the_raven.address.compare.html">send_the_raven.address.compare</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../_autosummary/send_the_raven.address.Address.html">send_the_raven.address.Address</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../_autosummary/send_the_raven.address.Addresses.html">send_the_raven.address.Addresses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../_autosummary/send_the_raven.address.Placemapper.html">send_the_raven.address.Placemapper</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../_autosummary/send_the_raven.geoaddress.html">send_the_raven.geoaddress</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../_autosummary/send_the_raven.geoaddress.GeoAddress.html">send_the_raven.geoaddress.GeoAddress</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../_autosummary/send_the_raven.geoaddress.Geocoder.html">send_the_raven.geoaddress.Geocoder</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../_autosummary/send_the_raven.validator.html">send_the_raven.validator</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../_autosummary/send_the_raven.validator.Validator.html">send_the_raven.validator.Validator</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../_autosummary/send_the_raven.utils.html">send_the_raven.utils</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../_autosummary/send_the_raven.utils.generate_id.html">send_the_raven.utils.generate_id</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../_autosummary/send_the_raven.utils.split_into_n_elements.html">send_the_raven.utils.split_into_n_elements</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../contribute.html">Contributing</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <h1>Source code for send_the_raven.validator</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">.address</span> <span class="kn">import</span> <span class="n">Addresses</span><span class="p">,</span> <span class="n">Address</span><span class="p">,</span> <span class="n">DEFAULT_ADDRESS_MAPPING</span>
+<span class="kn">from</span> <span class="nn">.utils</span> <span class="kn">import</span> <span class="n">split_into_n_elements</span>
+<span class="kn">from</span> <span class="nn">xmltodict</span> <span class="kn">import</span> <span class="n">parse</span><span class="p">,</span> <span class="n">unparse</span>
+<span class="kn">from</span> <span class="nn">urllib.parse</span> <span class="kn">import</span> <span class="n">quote_plus</span>
+<span class="kn">from</span> <span class="nn">aiohttp</span> <span class="kn">import</span> <span class="n">ClientSession</span>
+<span class="kn">from</span> <span class="nn">aiohttp.connector</span> <span class="kn">import</span> <span class="n">TCPConnector</span>
+<span class="kn">import</span> <span class="nn">asyncio</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Iterable</span><span class="p">,</span> <span class="n">Any</span>
+
+<span class="n">XML_DOC</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;&lt;?xml version=&quot;1.0&quot;?&gt;</span>
+<span class="s2">              &lt;AddressValidateRequest USERID=&quot;</span><span class="si">{}</span><span class="s2">&quot;&gt;</span>
+<span class="s2">              &lt;Revision&gt;1&lt;/Revision&gt;</span>
+<span class="s2">              &lt;/AddressValidateRequest&gt;&quot;&quot;&quot;</span>
+
+
+<span class="k">def</span> <span class="nf">_prepare_xml</span><span class="p">(</span><span class="n">current_addresses</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Address</span><span class="p">],</span> <span class="n">usps_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Prepare XML based on USPS Standard</span>
+<span class="sd">    https://www.usps.com/business/web-tools-apis/address-information-api.pdf</span>
+
+<span class="sd">    Up to 5 addresses per request.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        current_addresses (list[Address]): Addresses to validate</span>
+
+<span class="sd">    returns:</span>
+<span class="sd">        string: not URLencoded XML string</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">xml</span> <span class="o">=</span> <span class="n">parse</span><span class="p">(</span><span class="n">XML_DOC</span><span class="p">)</span>
+    <span class="n">xml</span><span class="p">[</span><span class="s2">&quot;AddressValidateRequest&quot;</span><span class="p">][</span><span class="s2">&quot;@USERID&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">usps_id</span>
+    <span class="n">xml</span><span class="p">[</span><span class="s2">&quot;AddressValidateRequest&quot;</span><span class="p">][</span><span class="s2">&quot;Address&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">address</span> <span class="ow">in</span> <span class="n">current_addresses</span><span class="p">[:</span><span class="mi">5</span><span class="p">]:</span>
+        <span class="n">xml</span><span class="p">[</span><span class="s2">&quot;AddressValidateRequest&quot;</span><span class="p">][</span><span class="s2">&quot;Address&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+            <span class="p">{</span>
+                <span class="s2">&quot;@ID&quot;</span><span class="p">:</span> <span class="n">address</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
+                <span class="s2">&quot;Address1&quot;</span><span class="p">:</span> <span class="n">address</span><span class="o">.</span><span class="n">address_line_2</span><span class="p">,</span>
+                <span class="s2">&quot;Address2&quot;</span><span class="p">:</span> <span class="n">address</span><span class="o">.</span><span class="n">street</span><span class="p">,</span>
+                <span class="s2">&quot;City&quot;</span><span class="p">:</span> <span class="n">address</span><span class="o">.</span><span class="n">city</span><span class="p">,</span>
+                <span class="s2">&quot;State&quot;</span><span class="p">:</span> <span class="n">address</span><span class="o">.</span><span class="n">state</span><span class="p">,</span>
+                <span class="s2">&quot;Zip5&quot;</span><span class="p">:</span> <span class="n">address</span><span class="o">.</span><span class="n">zip_code</span><span class="p">,</span>
+                <span class="s2">&quot;Zip4&quot;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="p">}</span>
+        <span class="p">)</span>
+    <span class="k">return</span> <span class="n">unparse</span><span class="p">(</span><span class="n">xml</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="Validator"><a class="viewcode-back" href="../../_autosummary/send_the_raven.validator.Validator.html#send_the_raven.validator.Validator">[docs]</a><span class="k">class</span> <span class="nc">Validator</span><span class="p">(</span><span class="n">Addresses</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Class to validate addresses to `USPS database &lt;https://www.usps.com/business/web-tools-apis/documentation-updates.htm&gt;`_.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        data (Addresses): Addresses to validate.</span>
+<span class="sd">        usps_id (str): USPS ID to use for validation. Get it `here &lt;https://registration.shippingapis.com/&gt;`_.</span>
+<span class="sd">        request_limit (int): Maximum number of requests per second.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        data (list[Address]): full address.</span>
+<span class="sd">        results (list[Addresses]): validated addresses.</span>
+<span class="sd">        errors (list[tuple[Address, Exception]]): addresses with errors.</span>
+
+<span class="sd">    Example:</span>
+
+<span class="sd">        &gt;&gt;&gt; addresses = [</span>
+<span class="sd">            {&quot;street&quot;: &quot;123 Main St&quot;, &quot;city&quot;: &quot;Anytown&quot;, &quot;state&quot;: &quot;CA&quot;, &quot;zip&quot;: &quot;12345&quot;},</span>
+<span class="sd">            {&quot;street&quot;: &quot;456 Oak Rd&quot;, &quot;city&quot;: &quot;Forest&quot;, &quot;state&quot;: &quot;VT&quot;, &quot;zip&quot;: &quot;67890&quot;}</span>
+<span class="sd">        ]</span>
+<span class="sd">        &gt;&gt;&gt; validator = Validator(addresses, usps_id=&quot;MY_ID&quot;)</span>
+<span class="sd">        &gt;&gt;&gt; valid_addresses = validator()</span>
+<span class="sd">        &gt;&gt;&gt; for addr in valid_addresses:</span>
+<span class="sd">        &gt;&gt;&gt;     print(addr.street, addr.city, addr.state, addr.zip_code)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="Validator.__init__"><a class="viewcode-back" href="../../_autosummary/send_the_raven.validator.Validator.html#send_the_raven.validator.Validator.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">addresses</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">[</span><span class="n">Any</span><span class="p">],</span>
+        <span class="n">usps_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">request_limit</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span>
+        <span class="n">field_mapping</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">DEFAULT_ADDRESS_MAPPING</span><span class="p">,</span>
+    <span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">addresses</span><span class="p">,</span> <span class="n">field_mapping</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">usps_id</span> <span class="o">=</span> <span class="n">usps_id</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">request_limit</span> <span class="o">=</span> <span class="n">request_limit</span></div>
+
+<div class="viewcode-block" id="Validator.validate"><a class="viewcode-back" href="../../_autosummary/send_the_raven.validator.Validator.html#send_the_raven.validator.Validator.validate">[docs]</a>    <span class="k">async</span> <span class="k">def</span> <span class="nf">validate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Address</span><span class="p">],</span> <span class="n">client</span><span class="p">:</span> <span class="n">ClientSession</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Request validation data to USPS database</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            data (list[Address]): Addresses to validate.</span>
+<span class="sd">            client (aiohttp.ClientSession): Initialized aiohttp ClientSession</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">xml_string</span> <span class="o">=</span> <span class="n">_prepare_xml</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">usps_id</span><span class="p">)</span>
+        <span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;https://secure.shippingapis.com/ShippingAPI.dll?API=Verify&amp;XML=</span><span class="si">{</span><span class="n">quote_plus</span><span class="p">(</span><span class="n">xml_string</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">res</span> <span class="o">=</span> <span class="k">await</span> <span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="n">parse</span><span class="p">(</span><span class="k">await</span> <span class="n">res</span><span class="o">.</span><span class="n">text</span><span class="p">())</span>
+            <span class="k">for</span> <span class="n">address</span> <span class="ow">in</span> <span class="n">result</span><span class="p">[</span><span class="s2">&quot;AddressValidateResponse&quot;</span><span class="p">][</span><span class="s2">&quot;Address&quot;</span><span class="p">]:</span>
+                <span class="k">if</span> <span class="s2">&quot;Error&quot;</span> <span class="ow">in</span> <span class="n">address</span><span class="p">:</span>
+                    <span class="n">current_error_address</span> <span class="o">=</span> <span class="n">Address</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="n">address</span><span class="p">[</span><span class="s2">&quot;@ID&quot;</span><span class="p">])</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">errors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                        <span class="p">(</span>
+                            <span class="n">current_error_address</span><span class="p">,</span>
+                            <span class="ne">Exception</span><span class="p">(</span><span class="n">address</span><span class="p">[</span><span class="s2">&quot;Error&quot;</span><span class="p">][</span><span class="s2">&quot;Description&quot;</span><span class="p">]),</span>
+                        <span class="p">)</span>
+                    <span class="p">)</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">current_error_address</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                        <span class="n">Address</span><span class="p">(</span>
+                            <span class="n">street</span><span class="o">=</span><span class="n">address</span><span class="p">[</span><span class="s2">&quot;Address2&quot;</span><span class="p">],</span>
+                            <span class="n">address_line_2</span><span class="o">=</span><span class="n">address</span><span class="p">[</span><span class="s2">&quot;Address1&quot;</span><span class="p">]</span>
+                            <span class="k">if</span> <span class="s2">&quot;Address1&quot;</span> <span class="ow">in</span> <span class="n">address</span>
+                            <span class="k">else</span> <span class="kc">None</span><span class="p">,</span>
+                            <span class="n">city</span><span class="o">=</span><span class="n">address</span><span class="p">[</span><span class="s2">&quot;City&quot;</span><span class="p">],</span>
+                            <span class="n">state</span><span class="o">=</span><span class="n">address</span><span class="p">[</span><span class="s2">&quot;State&quot;</span><span class="p">],</span>
+                            <span class="n">zip_code</span><span class="o">=</span><span class="n">address</span><span class="p">[</span><span class="s2">&quot;Zip4&quot;</span><span class="p">],</span>
+                            <span class="nb">id</span><span class="o">=</span><span class="n">address</span><span class="p">[</span><span class="s2">&quot;@ID&quot;</span><span class="p">],</span>
+                        <span class="p">)</span>
+                    <span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">address</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">errors</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">address</span><span class="p">,</span> <span class="n">e</span><span class="p">))</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">address</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Validator.start_validation"><a class="viewcode-back" href="../../_autosummary/send_the_raven.validator.Validator.html#send_the_raven.validator.Validator.start_validation">[docs]</a>    <span class="k">async</span> <span class="k">def</span> <span class="nf">start_validation</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initialize aiohttp TCPConnector with limit and ClientSession.</span>
+<span class="sd">        Start validation in asyncio.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">connector</span> <span class="o">=</span> <span class="n">TCPConnector</span><span class="p">(</span><span class="n">limit_per_host</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">request_limit</span> <span class="ow">or</span> <span class="mi">10</span><span class="p">)</span>
+        <span class="k">async</span> <span class="k">with</span> <span class="n">ClientSession</span><span class="p">(</span><span class="n">connector</span><span class="o">=</span><span class="n">connector</span><span class="p">)</span> <span class="k">as</span> <span class="n">session</span><span class="p">:</span>
+            <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">gather</span><span class="p">(</span>
+                <span class="o">*</span><span class="p">[</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">validate</span><span class="p">(</span><span class="n">current_addresses</span><span class="p">,</span> <span class="n">session</span><span class="p">)</span>
+                    <span class="k">for</span> <span class="n">current_addresses</span> <span class="ow">in</span> <span class="n">split_into_n_elements</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">addresses</span><span class="p">)</span>
+                <span class="p">]</span>
+            <span class="p">)</span></div>
+
+<div class="viewcode-block" id="Validator.__call__"><a class="viewcode-back" href="../../_autosummary/send_the_raven.validator.Validator.html#send_the_raven.validator.Validator.__call__">[docs]</a>    <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Start validation process. Will return after all async process</span>
+<span class="sd">        are completed.</span>
+
+<span class="sd">        returns:</span>
+<span class="sd">            Addresses: validated addresses.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">errors</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">start_validation</span><span class="p">())</span>
+        <span class="k">except</span> <span class="ne">RuntimeError</span><span class="p">:</span>
+            <span class="n">asyncio</span><span class="o">.</span><span class="n">create_task</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">start_validation</span><span class="p">())</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">addresses</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">results</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">addresses</span></div></div>
+</pre></div>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Jimmy Hikmatullah
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2023, Jimmy Hikmatullah.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=927b94d3fcb96560df09"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=927b94d3fcb96560df09"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

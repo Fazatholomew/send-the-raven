@@ -1,0 +1,506 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <link rel="icon" href="_static/favicon.ico" type="image/x-icon">
+    <link rel="icon" sizes="16x16" href="_static/favicon-16x16.png" type="image/png">
+    <link rel="icon" sizes="32x32" href="_static/favicon-32x32.png" type="image/png">
+    <link rel="icon" sizes="192x192" href="_static/favicon-192x192.png" type="image/png">
+    <link rel="icon" sizes="512x512" href="_static/favicon-512x512.png" type="image/png">
+    <link rel="apple-touch-icon" href="_static/apple-touch-icon.png" type="image/png" sizes="180x180">
+    <title>Examples &#8212; Send The Raven</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=927b94d3fcb96560df09" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=927b94d3fcb96560df09" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=927b94d3fcb96560df09" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=927b94d3fcb96560df09" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=927b94d3fcb96560df09" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=927b94d3fcb96560df09" />
+  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=927b94d3fcb96560df09"></script>
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'example';</script>
+    <link rel="canonical" href="https://send-the-raven.jimmtganteng.com/example.html" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="API Reference" href="api.html" />
+    <link rel="prev" title="Send The Raven" href="index.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/android-chrome-512x512.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="_static/android-chrome-512x512.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Examples</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="api.html">API Reference</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="_autosummary/send_the_raven.address.html">send_the_raven.address</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="_autosummary/send_the_raven.address.compare.html">send_the_raven.address.compare</a></li>
+<li class="toctree-l3"><a class="reference internal" href="_autosummary/send_the_raven.address.Address.html">send_the_raven.address.Address</a></li>
+<li class="toctree-l3"><a class="reference internal" href="_autosummary/send_the_raven.address.Addresses.html">send_the_raven.address.Addresses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="_autosummary/send_the_raven.address.Placemapper.html">send_the_raven.address.Placemapper</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="_autosummary/send_the_raven.geoaddress.html">send_the_raven.geoaddress</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="_autosummary/send_the_raven.geoaddress.GeoAddress.html">send_the_raven.geoaddress.GeoAddress</a></li>
+<li class="toctree-l3"><a class="reference internal" href="_autosummary/send_the_raven.geoaddress.Geocoder.html">send_the_raven.geoaddress.Geocoder</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="_autosummary/send_the_raven.validator.html">send_the_raven.validator</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="_autosummary/send_the_raven.validator.Validator.html">send_the_raven.validator.Validator</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="_autosummary/send_the_raven.utils.html">send_the_raven.utils</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="_autosummary/send_the_raven.utils.generate_id.html">send_the_raven.utils.generate_id</a></li>
+<li class="toctree-l3"><a class="reference internal" href="_autosummary/send_the_raven.utils.split_into_n_elements.html">send_the_raven.utils.split_into_n_elements</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="contribute.html">Contributing</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/example.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Examples</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-address">Working with <code class="xref py py-class docutils literal notranslate"><span class="pre">Address</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#convert-address-into-longitude-and-latitude-using-geocoder">Convert Address into Longitude and Latitude using <code class="xref py py-class docutils literal notranslate"><span class="pre">Geocoder</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#validate-addresses-to-usps-using-validator">Validate addresses to USPS using <code class="xref py py-class docutils literal notranslate"><span class="pre">Validator</span></code></a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="examples">
+<h1>Examples<a class="headerlink" href="#examples" title="Permalink to this heading">#</a></h1>
+<section id="working-with-address">
+<h2>Working with <a class="reference internal" href="_autosummary/send_the_raven.address.Address.html#send_the_raven.address.Address" title="send_the_raven.address.Address"><code class="xref py py-class docutils literal notranslate"><span class="pre">Address</span></code></a><a class="headerlink" href="#working-with-address" title="Permalink to this heading">#</a></h2>
+<p>Comparing 2 addresses can be tidious process. Sometimes street component can be <code class="docutils literal notranslate"><span class="pre">12</span> <span class="pre">main</span> <span class="pre">street</span></code> or <code class="docutils literal notranslate"><span class="pre">12</span> <span class="pre">main</span> <span class="pre">st</span></code>.
+That’s why <a class="reference internal" href="_autosummary/send_the_raven.address.Address.html#send_the_raven.address.Address" title="send_the_raven.address.Address"><code class="xref py py-class docutils literal notranslate"><span class="pre">Address</span></code></a> instances could be easily compared using <code class="docutils literal notranslate"><span class="pre">==</span></code>.
+Furthermore, in order to increase the comparing result and extracting address components, <a class="reference internal" href="_autosummary/send_the_raven.address.Addresses.html#send_the_raven.address.Addresses.normalize" title="send_the_raven.address.Addresses.normalize"><code class="xref py py-func docutils literal notranslate"><span class="pre">normalize()</span></code></a> can be used.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">send_the_raven.address</span> <span class="kn">import</span> <span class="n">Address</span><span class="p">,</span> <span class="n">Addresses</span><span class="p">,</span> <span class="n">compare</span>
+
+<span class="c1"># Create Address instance manually</span>
+<span class="n">addr1</span> <span class="o">=</span> <span class="n">Address</span><span class="p">(</span><span class="n">street</span><span class="o">=</span><span class="s2">&quot;12 Main St&quot;</span><span class="p">,</span> <span class="n">city</span><span class="o">=</span><span class="s2">&quot;Boston&quot;</span><span class="p">,</span> <span class="n">state</span><span class="o">=</span><span class="s2">&quot;MA&quot;</span><span class="p">)</span>
+<span class="n">addr2</span> <span class="o">=</span> <span class="n">Address</span><span class="p">(</span><span class="n">street</span><span class="o">=</span><span class="s2">&quot;12 Main Street&quot;</span><span class="p">,</span> <span class="n">city</span><span class="o">=</span><span class="s2">&quot;Boston&quot;</span><span class="p">,</span> <span class="n">state</span><span class="o">=</span><span class="s2">&quot;massachusetts&quot;</span><span class="p">)</span>
+<span class="k">assert</span> <span class="n">addr1</span> <span class="o">==</span> <span class="n">addr2</span>
+
+<span class="c1"># Smartly filling Zip Code to import USPS Validation</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Zipcode: </span><span class="si">{</span><span class="n">addr1</span><span class="o">.</span><span class="n">zip_code</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">addr1</span><span class="o">.</span><span class="n">fill_in_zipcode</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Zipcode: </span><span class="si">{</span><span class="n">addr1</span><span class="o">.</span><span class="n">zip_code</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">addr2</span><span class="o">.</span><span class="n">fill_in_state</span><span class="p">()</span>
+<span class="k">assert</span> <span class="n">addr2</span><span class="o">.</span><span class="n">state</span> <span class="o">==</span> <span class="s2">&quot;MA&quot;</span>
+
+<span class="c1"># Extract address from 1 string</span>
+<span class="n">many_address</span> <span class="o">=</span> <span class="n">Addresses</span><span class="p">(</span>
+    <span class="p">[</span>
+        <span class="p">{</span><span class="s2">&quot;full_address&quot;</span><span class="p">:</span> <span class="s2">&quot;12 park st, lawrence&quot;</span><span class="p">},</span>
+        <span class="p">{</span><span class="s2">&quot;full_address&quot;</span><span class="p">:</span> <span class="s2">&quot;12 park street, lawrence&quot;</span><span class="p">},</span>
+    <span class="p">]</span>
+<span class="p">)</span>
+
+<span class="n">many_address</span><span class="o">.</span><span class="n">normalize</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">compare</span><span class="p">(</span><span class="n">many_address</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">many_address</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+</pre></div>
+</div>
+</section>
+<section id="convert-address-into-longitude-and-latitude-using-geocoder">
+<h2>Convert Address into Longitude and Latitude using <a class="reference internal" href="_autosummary/send_the_raven.geoaddress.Geocoder.html#send_the_raven.geoaddress.Geocoder" title="send_the_raven.geoaddress.Geocoder"><code class="xref py py-class docutils literal notranslate"><span class="pre">Geocoder</span></code></a><a class="headerlink" href="#convert-address-into-longitude-and-latitude-using-geocoder" title="Permalink to this heading">#</a></h2>
+<p>One needs to convert 1 million addresses into Longitude and Latitude? It’s <a class="reference internal" href="_autosummary/send_the_raven.geoaddress.Geocoder.html#send_the_raven.geoaddress.Geocoder" title="send_the_raven.geoaddress.Geocoder"><code class="xref py py-class docutils literal notranslate"><span class="pre">Geocoder</span></code></a> comes to the rescue.</p>
+<p><a class="reference internal" href="_autosummary/send_the_raven.address.Address.html#send_the_raven.address.Address" title="send_the_raven.address.Address"><code class="xref py py-class docutils literal notranslate"><span class="pre">Address</span></code></a> instances could be easily compared using <code class="docutils literal notranslate"><span class="pre">==</span></code>. Furthermore, extracting addresss components can be done in parallel using <a class="reference internal" href="_autosummary/send_the_raven.address.Addresses.html#send_the_raven.address.Addresses.normalize" title="send_the_raven.address.Addresses.normalize"><code class="xref py py-func docutils literal notranslate"><span class="pre">normalize()</span></code></a>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">send_the_raven.geoaddress</span> <span class="kn">import</span> <span class="n">Geocoder</span>
+
+<span class="n">addresses</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span><span class="s2">&quot;street&quot;</span><span class="p">:</span> <span class="s2">&quot;123 Main St&quot;</span><span class="p">,</span> <span class="s2">&quot;city&quot;</span><span class="p">:</span> <span class="s2">&quot;Anytown&quot;</span><span class="p">,</span> <span class="s2">&quot;state&quot;</span><span class="p">:</span> <span class="s2">&quot;CA&quot;</span><span class="p">,</span> <span class="s2">&quot;zip&quot;</span><span class="p">:</span> <span class="s2">&quot;12345&quot;</span><span class="p">},</span>
+    <span class="p">{</span><span class="s2">&quot;street&quot;</span><span class="p">:</span> <span class="s2">&quot;456 Oak Rd&quot;</span><span class="p">,</span> <span class="s2">&quot;city&quot;</span><span class="p">:</span> <span class="s2">&quot;Forest&quot;</span><span class="p">,</span> <span class="s2">&quot;state&quot;</span><span class="p">:</span> <span class="s2">&quot;VT&quot;</span><span class="p">,</span> <span class="s2">&quot;zip&quot;</span><span class="p">:</span> <span class="s2">&quot;67890&quot;</span><span class="p">},</span>
+<span class="p">]</span>
+<span class="n">geocoder</span> <span class="o">=</span> <span class="n">Geocoder</span><span class="p">(</span><span class="n">addresses</span><span class="p">)</span>
+<span class="n">geocoder</span><span class="p">(</span><span class="s2">&quot;nominatim&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;user_agent&quot;</span><span class="p">:</span> <span class="s2">&quot;my_app&quot;</span><span class="p">})</span>
+
+<span class="k">for</span> <span class="n">address</span> <span class="ow">in</span> <span class="n">geocoder</span><span class="o">.</span><span class="n">addresses</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">address</span><span class="o">.</span><span class="n">latitude</span><span class="p">,</span> <span class="n">address</span><span class="o">.</span><span class="n">longitude</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="validate-addresses-to-usps-using-validator">
+<h2>Validate addresses to USPS using <a class="reference internal" href="_autosummary/send_the_raven.validator.Validator.html#send_the_raven.validator.Validator" title="send_the_raven.validator.Validator"><code class="xref py py-class docutils literal notranslate"><span class="pre">Validator</span></code></a><a class="headerlink" href="#validate-addresses-to-usps-using-validator" title="Permalink to this heading">#</a></h2>
+<p>USPS API is not the most developer friendly API. Therefore, <a class="reference internal" href="_autosummary/send_the_raven.validator.Validator.html#send_the_raven.validator.Validator" title="send_the_raven.validator.Validator"><code class="xref py py-class docutils literal notranslate"><span class="pre">Validator</span></code></a> is here to help.</p>
+<p><a class="reference internal" href="_autosummary/send_the_raven.address.Address.html#send_the_raven.address.Address" title="send_the_raven.address.Address"><code class="xref py py-class docutils literal notranslate"><span class="pre">Address</span></code></a> instances could be easily compared using <code class="docutils literal notranslate"><span class="pre">==</span></code>. Furthermore, extracting addresss components can be done in parallel using <a class="reference internal" href="_autosummary/send_the_raven.address.Addresses.html#send_the_raven.address.Addresses.normalize" title="send_the_raven.address.Addresses.normalize"><code class="xref py py-func docutils literal notranslate"><span class="pre">normalize()</span></code></a>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">send_the_raven.validator</span> <span class="kn">import</span> <span class="n">Validator</span>
+
+<span class="n">addresses</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span><span class="s2">&quot;street&quot;</span><span class="p">:</span> <span class="s2">&quot;123 Main St&quot;</span><span class="p">,</span> <span class="s2">&quot;city&quot;</span><span class="p">:</span> <span class="s2">&quot;Anytown&quot;</span><span class="p">,</span> <span class="s2">&quot;state&quot;</span><span class="p">:</span> <span class="s2">&quot;CA&quot;</span><span class="p">,</span> <span class="s2">&quot;zip&quot;</span><span class="p">:</span> <span class="s2">&quot;12345&quot;</span><span class="p">},</span>
+    <span class="p">{</span><span class="s2">&quot;street&quot;</span><span class="p">:</span> <span class="s2">&quot;456 Oak Rd&quot;</span><span class="p">,</span> <span class="s2">&quot;city&quot;</span><span class="p">:</span> <span class="s2">&quot;Forest&quot;</span><span class="p">,</span> <span class="s2">&quot;state&quot;</span><span class="p">:</span> <span class="s2">&quot;VT&quot;</span><span class="p">,</span> <span class="s2">&quot;zip&quot;</span><span class="p">:</span> <span class="s2">&quot;67890&quot;</span><span class="p">},</span>
+<span class="p">]</span>
+<span class="n">validator</span> <span class="o">=</span> <span class="n">Validator</span><span class="p">(</span><span class="n">addresses</span><span class="p">,</span> <span class="n">usps_id</span><span class="o">=</span><span class="s2">&quot;MY_ID&quot;</span><span class="p">)</span>
+<span class="n">valid_addresses</span> <span class="o">=</span> <span class="n">validator</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">addr</span> <span class="ow">in</span> <span class="n">valid_addresses</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">addr</span><span class="o">.</span><span class="n">street</span><span class="p">,</span> <span class="n">addr</span><span class="o">.</span><span class="n">city</span><span class="p">,</span> <span class="n">addr</span><span class="o">.</span><span class="n">state</span><span class="p">,</span> <span class="n">addr</span><span class="o">.</span><span class="n">zip_code</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="index.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Send The Raven</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="api.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">API Reference</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-address">Working with <code class="xref py py-class docutils literal notranslate"><span class="pre">Address</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#convert-address-into-longitude-and-latitude-using-geocoder">Convert Address into Longitude and Latitude using <code class="xref py py-class docutils literal notranslate"><span class="pre">Geocoder</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#validate-addresses-to-usps-using-validator">Validate addresses to USPS using <code class="xref py py-class docutils literal notranslate"><span class="pre">Validator</span></code></a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Jimmy Hikmatullah
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2023, Jimmy Hikmatullah.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=927b94d3fcb96560df09"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=927b94d3fcb96560df09"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
