@@ -1,9 +1,12 @@
+.. |.`~send_the_raven.address.Address`| replace:: ``Address``
+.. _.`~send_the_raven.address.Address`: https://send-the-raven.jimmtganteng.com/_autosummary/send_the_raven.address.Address.html#send_the_raven.address.Address
+
 Send The Raven
 ===============
 
 Send the Raven is a Python library that provides a comprehensive collection of toolkits and algorithms for handling US addresses. It aims to simplify the process of working with US addresses, offering functionalities such as parsing, validation, formatting, and more.
 
-.. image:: /_static/d782276f-b708-4c7d-a077-5354d19f06fe.gif
+.. image:: https://raw.githubusercontent.com/Fazatholomew/send-the-raven/7cabf57e3ae50f05a2450c0307856956d5ca60a0/source/_static/d782276f-b708-4c7d-a077-5354d19f06fe.gif
    :alt: Game of Thrones Send the Ravens GIF
    :align: center
 
@@ -46,7 +49,7 @@ Here is a quick example of using send_the_raven to validate addresses into USPS 
    
 send_the_raven handles parsing the address data, constructing the validation requests, and returning the corrected addresses.
 
-The :py:class:`~send_the_raven.address.Address` class also provides methods for normalizing, geocoding, and working with addresses.
+The :py|.`~send_the_raven.address.Address`|_ class also provides methods for normalizing, geocoding, and working with addresses.
 
 
 Acknowledgments
@@ -62,10 +65,6 @@ send_the_raven uses the following open source libraries:
 
 We thank the developers of these libraries for their contributions.
 
-.. toctree::
-   :maxdepth: 2
-   :hidden:
-   
-   example
-   api
-   contribute
+* `Examples <https://send-the-raven.jimmtganteng.com/example.html>`_
+* `API Reference <https://send-the-raven.jimmtganteng.com/api.html>`_
+* `Contributing <https://send-the-raven.jimmtganteng.com/contribute.html>`_
