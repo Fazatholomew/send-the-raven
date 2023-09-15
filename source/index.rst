@@ -7,6 +7,8 @@ Send the Raven is a Python library that provides a comprehensive collection of t
    :alt: Game of Thrones Send the Ravens GIF
    :align: center
 
+Checkout the official `documentation <https://send-the-raven.jimmyganteng.com>`.
+
 Features
 ---------
 
