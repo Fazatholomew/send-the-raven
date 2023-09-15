@@ -1,14 +1,14 @@
 Send The Raven
-###############
+===============
 
 Send the Raven is a Python library that provides a comprehensive collection of toolkits and algorithms for handling US addresses. It aims to simplify the process of working with US addresses, offering functionalities such as parsing, validation, formatting, and more.
 
-.. image:: _static/d782276f-b708-4c7d-a077-5354d19f06fe.gif
+.. image:: /_static/d782276f-b708-4c7d-a077-5354d19f06fe.gif
    :alt: Game of Thrones Send the Ravens GIF
    :align: center
 
 Features
-*********
+---------
 
 - **Address Parsing**: Extract structured information from US addresses, including street names, house numbers, city, state, and ZIP codes.
 - **Address Validation**: Validate US addresses to ensure accuracy and compliance with USPS standards.  
@@ -17,7 +17,7 @@ Features
 - **Additional Utilities**: Additional utilities to enhance address handling, such as address comparison, address normalization, and more.
 
 Installation
-*************
+-------------
 
 send_the_raven can be installed from PyPI:
 
@@ -26,7 +26,7 @@ send_the_raven can be installed from PyPI:
    pip install send_the_raven
 
 Usage
-*****
+------
 
 Here is a quick example of using send_the_raven to validate addresses into USPS Database:
 
@@ -48,7 +48,7 @@ The :py:class:`~send_the_raven.address.Address` class also provides methods for 
 
 
 Acknowledgments
-***************
+----------------
 
 send_the_raven uses the following open source libraries:
 

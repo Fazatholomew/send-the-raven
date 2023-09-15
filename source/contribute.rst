@@ -62,7 +62,7 @@ Make the changes to the code or documentation. Be sure to add:
 - Documentation updates as needed
 
 7. Prepare for test
-------------
+--------------------
 
 If you haven't already, get USPS API key for free here. Then, create a ``.env.dev`` and put your ID there.
 

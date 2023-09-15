@@ -100,8 +100,14 @@ favicons = [
 
 html_context = {
     "display_github": True, # Integrate GitHub
-    "github_user": "MyUserName", # Username
-    "github_repo": "MyDoc", # Repo name
-    "github_version": "master", # Version
+    "github_user": "fazatholomew", # Username
+    "github_repo": "send-the-raven", # Repo name
+    "github_version": "main", # Version
     "conf_py_path": "/source/", # Path in the checkout to the docs root
 }
+
+html_baseurl = 'https://send-the-raven.jimmtganteng.com'
+readme_src_files = ['index.rst']
+readme_docs_url_type = 'code'
+readme_raw_directive = False
+readme_include_directive = False
