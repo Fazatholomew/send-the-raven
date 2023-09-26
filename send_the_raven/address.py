@@ -1,5 +1,5 @@
 import pydantic
-from typing import Optional, Iterable, Any, TypedDict
+from typing import Optional, Iterable, Mapping, TypedDict
 from .utils import generate_id
 from multiprocessing import Pool
 from scourgify import normalize_address_record
@@ -106,6 +106,10 @@ class Address(pydantic.BaseModel):
         """
         Normalize address
         using https://github.com/GreenBuildingRegistry/usaddress-scourgify/
+
+        Warning:
+            When address is not parseable,
+            it will be set to None. No error would be thrown.
         """
         normalized = None
         try:
@@ -117,7 +121,7 @@ class Address(pydantic.BaseModel):
                     "address_line_2": self.address_line_2 or "",
                     "city": self.city or "",
                     "state": self.state or "",
-                    "zip_code": self.zip_code or "",
+                    "postal_code": self.zip_code or "",
                 }
             )
 
@@ -251,16 +255,23 @@ class Addresses:
 
     Args:
         addresses (iterable): iterable of any to construct Address object.
-        field_mapping (dict): A dictionary of field names to be used when constructing the Address objects.
+        field_mapping (dict): A dictionary of field names to be used when constructing the Address objects. The default is
+            :py:const:`DEFAULT_ADDRESS_MAPPING`. The dict's keys are :py:class:`Address`'s attributes. The dict's values are
+            the key in the input addresses.
 
     Attributes:
         addresses (list[Address]): A list of Address objects.
         field_mapping (dict): A dictionary of field names to be used when constructing the Address objects.
+
+    Example:
+        >>> data = [{'street address': '12 main st', 'city': boston}, {'street address': '14 main st', 'city': boston}]
+        >>> field_mapper = {'street': 'street address'}
+        >>> addresses = Addresses(data, field_mapper)
     """
 
     def __init__(
         self,
-        addresses: Iterable[Any],
+        addresses: Iterable[Mapping[str,str]],
         field_mapping: dict[str, str] = DEFAULT_ADDRESS_MAPPING,
     ):
         self.field_mapping = field_mapping
@@ -296,7 +307,7 @@ class Addresses:
     def __add__(self, b):
         self.addresses = self.addresses + b.addresses
         return self
-    
+
     def __getitem__(self, index):
         return self.addresses[index]
 
