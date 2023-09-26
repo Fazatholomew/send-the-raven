@@ -1,4 +1,4 @@
-send\_the\_raven.geoaddress.GeoAddress
+﻿send\_the\_raven.geoaddress.GeoAddress
 ======================================
 
 .. currentmodule:: send_the_raven.geoaddress
@@ -25,6 +25,7 @@ send\_the\_raven.geoaddress.GeoAddress
       ~GeoAddress.construct
       ~GeoAddress.copy
       ~GeoAddress.dict
+      ~GeoAddress.extract_address
       ~GeoAddress.fill_in_city
       ~GeoAddress.fill_in_state
       ~GeoAddress.fill_in_zipcode

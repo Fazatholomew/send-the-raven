@@ -163,6 +163,7 @@
 </ul>
 </li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="send_the_raven.utils.html">send_the_raven.utils</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="send_the_raven.utils.clean_string.html">send_the_raven.utils.clean_string</a></li>
 <li class="toctree-l3"><a class="reference internal" href="send_the_raven.utils.generate_id.html">send_the_raven.utils.generate_id</a></li>
 <li class="toctree-l3"><a class="reference internal" href="send_the_raven.utils.split_into_n_elements.html">send_the_raven.utils.split_into_n_elements</a></li>
 </ul>
@@ -323,7 +324,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#send_the_raven.validator.Validator.__init__"><code class="docutils literal notranslate"><span class="pre">Validator.__init__()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#send_the_raven.validator.Validator.__call__"><code class="docutils literal notranslate"><span class="pre">Validator.__call__()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id0"><code class="docutils literal notranslate"><span class="pre">Validator.__init__()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#send_the_raven.validator.Validator.normalize"><code class="docutils literal notranslate"><span class="pre">Validator.normalize()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#send_the_raven.validator.Validator.normalize_parallel"><code class="docutils literal notranslate"><span class="pre">Validator.normalize_parallel()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#send_the_raven.validator.Validator.start_validation"><code class="docutils literal notranslate"><span class="pre">Validator.start_validation()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#send_the_raven.validator.Validator.validate"><code class="docutils literal notranslate"><span class="pre">Validator.validate()</span></code></a></li>
 </ul>
@@ -447,7 +448,7 @@ are completed.</p>
 <tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">__len__</span></code>()</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#send_the_raven.validator.Validator.normalize" title="send_the_raven.validator.Validator.normalize"><code class="xref py py-obj docutils literal notranslate"><span class="pre">normalize</span></code></a>([number_of_proccesses])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#send_the_raven.validator.Validator.normalize_parallel" title="send_the_raven.validator.Validator.normalize_parallel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">normalize_parallel</span></code></a>([number_of_proccesses])</p></td>
 <td><p>Normalize all addresses in parallel.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#send_the_raven.validator.Validator.start_validation" title="send_the_raven.validator.Validator.start_validation"><code class="xref py py-obj docutils literal notranslate"><span class="pre">start_validation</span></code></a>()</p></td>
@@ -474,8 +475,8 @@ are completed.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="send_the_raven.validator.Validator.normalize">
-<span class="sig-name descname"><span class="pre">normalize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">number_of_proccesses</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#send_the_raven.validator.Validator.normalize" title="Permalink to this definition">#</a></dt>
+<dt class="sig sig-object py" id="send_the_raven.validator.Validator.normalize_parallel">
+<span class="sig-name descname"><span class="pre">normalize_parallel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">number_of_proccesses</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#send_the_raven.validator.Validator.normalize_parallel" title="Permalink to this definition">#</a></dt>
 <dd><p>Normalize all addresses in parallel. Uses <code class="xref py py-func docutils literal notranslate"><span class="pre">multiprocessing.Pool.map()</span></code>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -560,7 +561,7 @@ Start validation in asyncio.</p>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#send_the_raven.validator.Validator.__init__"><code class="docutils literal notranslate"><span class="pre">Validator.__init__()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#send_the_raven.validator.Validator.__call__"><code class="docutils literal notranslate"><span class="pre">Validator.__call__()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id0"><code class="docutils literal notranslate"><span class="pre">Validator.__init__()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#send_the_raven.validator.Validator.normalize"><code class="docutils literal notranslate"><span class="pre">Validator.normalize()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#send_the_raven.validator.Validator.normalize_parallel"><code class="docutils literal notranslate"><span class="pre">Validator.normalize_parallel()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#send_the_raven.validator.Validator.start_validation"><code class="docutils literal notranslate"><span class="pre">Validator.start_validation()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#send_the_raven.validator.Validator.validate"><code class="docutils literal notranslate"><span class="pre">Validator.validate()</span></code></a></li>
 </ul>

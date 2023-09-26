@@ -155,6 +155,7 @@
 </ul>
 </li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../_autosummary/send_the_raven.utils.html">send_the_raven.utils</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../_autosummary/send_the_raven.utils.clean_string.html">send_the_raven.utils.clean_string</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../_autosummary/send_the_raven.utils.generate_id.html">send_the_raven.utils.generate_id</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../_autosummary/send_the_raven.utils.split_into_n_elements.html">send_the_raven.utils.split_into_n_elements</a></li>
 </ul>
@@ -264,8 +265,8 @@ document.write(`
                   
   <h1>Source code for send_the_raven.address</h1><div class="highlight"><pre>
 <span></span><span class="kn">import</span> <span class="nn">pydantic</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Iterable</span><span class="p">,</span> <span class="n">Any</span><span class="p">,</span> <span class="n">TypedDict</span>
-<span class="kn">from</span> <span class="nn">.utils</span> <span class="kn">import</span> <span class="n">generate_id</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Iterable</span><span class="p">,</span> <span class="n">Mapping</span><span class="p">,</span> <span class="n">TypedDict</span>
+<span class="kn">from</span> <span class="nn">.utils</span> <span class="kn">import</span> <span class="n">generate_id</span><span class="p">,</span> <span class="n">clean_string</span>
 <span class="kn">from</span> <span class="nn">multiprocessing</span> <span class="kn">import</span> <span class="n">Pool</span>
 <span class="kn">from</span> <span class="nn">scourgify</span> <span class="kn">import</span> <span class="n">normalize_address_record</span>
 <span class="kn">from</span> <span class="nn">scourgify.exceptions</span> <span class="kn">import</span> <span class="p">(</span>
@@ -277,6 +278,7 @@ document.write(`
 <span class="kn">from</span> <span class="nn">re</span> <span class="kn">import</span> <span class="nb">compile</span>
 <span class="kn">from</span> <span class="nn">json</span> <span class="kn">import</span> <span class="n">load</span>
 <span class="kn">from</span> <span class="nn">importlib.resources</span> <span class="kn">import</span> <span class="n">files</span>
+<span class="kn">from</span> <span class="nn">usaddress</span> <span class="kn">import</span> <span class="n">tag</span><span class="p">,</span> <span class="n">RepeatedLabelError</span>
 
 <span class="n">STREET_ADDRESS_NUMBER_REGEX_PATTERN</span> <span class="o">=</span> <span class="nb">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\d+&quot;</span><span class="p">)</span>
 
@@ -289,6 +291,16 @@ document.write(`
     <span class="s2">&quot;zip_code&quot;</span><span class="p">:</span> <span class="s2">&quot;zip_code&quot;</span><span class="p">,</span>
     <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;id&quot;</span><span class="p">,</span>
 <span class="p">}</span>
+
+<span class="n">STREET_KEYS</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;AddressNumber&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;AddressNumberSuffix&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;StreetNamePreDirectional&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;StreetName&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;StreetNamePostType&quot;</span><span class="p">,</span>
+<span class="p">]</span>
+
+<span class="n">UNIT_KEYS</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;OccupancyType&quot;</span><span class="p">,</span> <span class="s2">&quot;OccupancyIdentifier&quot;</span><span class="p">]</span>
 
 
 <div class="viewcode-block" id="Placemapper"><a class="viewcode-back" href="../../_autosummary/send_the_raven.address.Placemapper.html#send_the_raven.address.Placemapper">[docs]</a><span class="k">class</span> <span class="nc">Placemapper</span><span class="p">(</span><span class="n">TypedDict</span><span class="p">):</span>
@@ -371,34 +383,107 @@ document.write(`
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Normalize address</span>
 <span class="sd">        using https://github.com/GreenBuildingRegistry/usaddress-scourgify/</span>
+
+<span class="sd">        Warning:</span>
+<span class="sd">            When address is not parseable,</span>
+<span class="sd">            it will be set to None. No error would be thrown.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">normalized</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="n">is_complete</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="k">for</span> <span class="n">field</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;street&quot;</span><span class="p">,</span> <span class="s2">&quot;address_line_2&quot;</span><span class="p">,</span> <span class="s2">&quot;city&quot;</span><span class="p">,</span> <span class="s2">&quot;state&quot;</span><span class="p">,</span> <span class="s2">&quot;zip_code&quot;</span><span class="p">]:</span>
+            <span class="n">value</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">field</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">is_complete</span> <span class="o">=</span> <span class="kc">False</span>
+                <span class="k">continue</span>
+            <span class="n">cleaned_value</span> <span class="o">=</span> <span class="n">clean_string</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+            <span class="nb">setattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">field</span><span class="p">,</span> <span class="n">cleaned_value</span><span class="p">)</span>
         <span class="k">try</span><span class="p">:</span>
-            <span class="n">normalized</span> <span class="o">=</span> <span class="n">normalize_address_record</span><span class="p">(</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">full_address</span>
-                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">full_address</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
-                <span class="k">else</span> <span class="p">{</span>
-                    <span class="s2">&quot;address_line_1&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">street</span> <span class="ow">or</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
-                    <span class="s2">&quot;address_line_2&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">address_line_2</span> <span class="ow">or</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
-                    <span class="s2">&quot;city&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">city</span> <span class="ow">or</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
-                    <span class="s2">&quot;state&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">state</span> <span class="ow">or</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
-                    <span class="s2">&quot;zip_code&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">zip_code</span> <span class="ow">or</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
-                <span class="p">}</span>
-            <span class="p">)</span>
-
+            <span class="k">if</span> <span class="n">is_complete</span><span class="p">:</span>
+                <span class="n">normalized</span> <span class="o">=</span> <span class="n">normalize_address_record</span><span class="p">(</span>
+                    <span class="p">{</span>
+                        <span class="s2">&quot;address_line_1&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">street</span> <span class="ow">or</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;address_line_2&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">address_line_2</span> <span class="ow">or</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;city&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">city</span> <span class="ow">or</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;state&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">state</span> <span class="ow">or</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;postal_code&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">zip_code</span> <span class="ow">or</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                    <span class="p">}</span>
+                <span class="p">)</span>
+            <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">full_address</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">normalized</span> <span class="o">=</span> <span class="n">normalize_address_record</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">full_address</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">normalized</span> <span class="o">=</span> <span class="n">normalize_address_record</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="fm">__str__</span><span class="p">())</span>
         <span class="k">except</span> <span class="p">(</span>
             <span class="n">UnParseableAddressError</span><span class="p">,</span>
             <span class="n">AmbiguousAddressError</span><span class="p">,</span>
             <span class="n">AddressNormalizationError</span><span class="p">,</span>
-        <span class="p">)</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">args</span><span class="p">)</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
-                <span class="n">normalized</span> <span class="o">=</span> <span class="n">e</span><span class="o">.</span><span class="n">args</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+        <span class="p">):</span>
+            <span class="c1"># if len(e.args) == 3:</span>
+            <span class="c1">#     normalized = e.args[2]</span>
+            <span class="c1">#     if any(</span>
+            <span class="c1">#         [</span>
+            <span class="c1">#             value is not None and len(value) &gt; 0</span>
+            <span class="c1">#             for value in normalized.values()</span>
+            <span class="c1">#         ]</span>
+            <span class="c1">#     ):</span>
+            <span class="c1">#         self.extract_address()</span>
+            <span class="c1">#         return</span>
+            <span class="c1"># else:</span>
+            <span class="c1">#     self.extract_address()</span>
+            <span class="c1">#     return</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">extract_address</span><span class="p">()</span>
+            <span class="k">for</span> <span class="n">field</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;street&quot;</span><span class="p">,</span> <span class="s2">&quot;address_line_2&quot;</span><span class="p">,</span> <span class="s2">&quot;city&quot;</span><span class="p">,</span> <span class="s2">&quot;state&quot;</span><span class="p">,</span> <span class="s2">&quot;zip_code&quot;</span><span class="p">]:</span>
+                <span class="n">value</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">field</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="k">continue</span>
+                <span class="nb">setattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">field</span><span class="p">,</span> <span class="n">value</span><span class="o">.</span><span class="n">upper</span><span class="p">())</span>
+
         <span class="k">if</span> <span class="n">normalized</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">street</span> <span class="o">=</span> <span class="n">normalized</span><span class="p">[</span><span class="s2">&quot;address_line_1&quot;</span><span class="p">]</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">address_line_2</span> <span class="o">=</span> <span class="n">normalized</span><span class="p">[</span><span class="s2">&quot;address_line_2&quot;</span><span class="p">]</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">city</span> <span class="o">=</span> <span class="n">normalized</span><span class="p">[</span><span class="s2">&quot;city&quot;</span><span class="p">]</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">state</span> <span class="o">=</span> <span class="n">normalized</span><span class="p">[</span><span class="s2">&quot;state&quot;</span><span class="p">]</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">zip_code</span> <span class="o">=</span> <span class="n">normalized</span><span class="p">[</span><span class="s2">&quot;postal_code&quot;</span><span class="p">]</span></div>
+
+<div class="viewcode-block" id="Address.extract_address"><a class="viewcode-back" href="../../_autosummary/send_the_raven.address.Address.html#send_the_raven.address.Address.extract_address">[docs]</a>    <span class="k">def</span> <span class="nf">extract_address</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Manually extract address directly using usaddress library.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="n">tag</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">full_address</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">full_address</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="fm">__str__</span><span class="p">()</span>
+            <span class="p">)</span>
+        <span class="k">except</span> <span class="n">RepeatedLabelError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="n">parsed</span> <span class="o">=</span> <span class="p">{}</span>
+            <span class="k">for</span> <span class="n">value</span><span class="p">,</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">e</span><span class="o">.</span><span class="n">parsed_string</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">parsed</span><span class="p">:</span>
+                    <span class="k">continue</span>
+                <span class="n">parsed</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="p">[</span><span class="n">parsed</span><span class="p">,</span> <span class="s2">&quot;Street Address&quot;</span><span class="p">]</span>
+        <span class="c1"># extracting street</span>
+        <span class="n">street_words</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">STREET_KEYS</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+                <span class="n">street_words</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">key</span><span class="p">])</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">street_words</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">street</span> <span class="o">=</span> <span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">street_words</span><span class="p">)</span>
+
+        <span class="c1"># extrating unit</span>
+        <span class="n">unit_words</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">UNIT_KEYS</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+                <span class="n">unit_words</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">key</span><span class="p">])</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">unit_words</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">address_line_2</span> <span class="o">=</span> <span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">unit_words</span><span class="p">)</span>
+
+        <span class="c1"># extracting city</span>
+        <span class="k">if</span> <span class="s2">&quot;PlaceName&quot;</span> <span class="ow">in</span> <span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">city</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;PlaceName&quot;</span><span class="p">]</span>
+        <span class="c1"># extrating zipcode</span>
+        <span class="k">if</span> <span class="s2">&quot;ZipCode&quot;</span> <span class="ow">in</span> <span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">zip_code</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;ZipCode&quot;</span><span class="p">][:</span><span class="mi">10</span><span class="p">]</span>
+
+        <span class="k">if</span> <span class="s2">&quot;StateName&quot;</span> <span class="ow">in</span> <span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">state</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;StateName&quot;</span><span class="p">][:</span><span class="mi">10</span><span class="p">]</span></div>
 
     <span class="k">def</span> <span class="fm">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -516,16 +601,23 @@ document.write(`
 
 <span class="sd">    Args:</span>
 <span class="sd">        addresses (iterable): iterable of any to construct Address object.</span>
-<span class="sd">        field_mapping (dict): A dictionary of field names to be used when constructing the Address objects.</span>
+<span class="sd">        field_mapping (dict): A dictionary of field names to be used when constructing the Address objects. The default is</span>
+<span class="sd">            :py:const:`DEFAULT_ADDRESS_MAPPING`. The dict&#39;s keys are :py:class:`Address`&#39;s attributes. The dict&#39;s values are</span>
+<span class="sd">            the key in the input addresses.</span>
 
 <span class="sd">    Attributes:</span>
 <span class="sd">        addresses (list[Address]): A list of Address objects.</span>
 <span class="sd">        field_mapping (dict): A dictionary of field names to be used when constructing the Address objects.</span>
+
+<span class="sd">    Example:</span>
+<span class="sd">        &gt;&gt;&gt; data = [{&#39;street address&#39;: &#39;12 main st&#39;, &#39;city&#39;: boston}, {&#39;street address&#39;: &#39;14 main st&#39;, &#39;city&#39;: boston}]</span>
+<span class="sd">        &gt;&gt;&gt; field_mapper = {&#39;street&#39;: &#39;street address&#39;}</span>
+<span class="sd">        &gt;&gt;&gt; addresses = Addresses(data, field_mapper)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
 <div class="viewcode-block" id="Addresses.__init__"><a class="viewcode-back" href="../../_autosummary/send_the_raven.address.Addresses.html#send_the_raven.address.Addresses.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
-        <span class="n">addresses</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">[</span><span class="n">Any</span><span class="p">],</span>
+        <span class="n">addresses</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">[</span><span class="n">Mapping</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="n">Address</span><span class="p">],</span>
         <span class="n">field_mapping</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">DEFAULT_ADDRESS_MAPPING</span><span class="p">,</span>
     <span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">field_mapping</span> <span class="o">=</span> <span class="n">field_mapping</span>
@@ -541,7 +633,7 @@ document.write(`
             <span class="k">for</span> <span class="n">address</span> <span class="ow">in</span> <span class="n">addresses</span>
         <span class="p">]</span></div>
 
-<div class="viewcode-block" id="Addresses.normalize"><a class="viewcode-back" href="../../_autosummary/send_the_raven.address.Addresses.html#send_the_raven.address.Addresses.normalize">[docs]</a>    <span class="k">def</span> <span class="nf">normalize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">number_of_proccesses</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="Addresses.normalize_parallel"><a class="viewcode-back" href="../../_autosummary/send_the_raven.address.Addresses.html#send_the_raven.address.Addresses.normalize_parallel">[docs]</a>    <span class="k">def</span> <span class="nf">normalize_parallel</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">number_of_proccesses</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Normalize all addresses in parallel. Uses :py:func:`multiprocessing.Pool.map`.</span>
 
@@ -561,7 +653,7 @@ document.write(`
     <span class="k">def</span> <span class="fm">__add__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">addresses</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">addresses</span> <span class="o">+</span> <span class="n">b</span><span class="o">.</span><span class="n">addresses</span>
         <span class="k">return</span> <span class="bp">self</span>
-    
+
     <span class="k">def</span> <span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">addresses</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
 

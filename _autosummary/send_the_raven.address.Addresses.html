@@ -163,6 +163,7 @@
 </ul>
 </li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="send_the_raven.utils.html">send_the_raven.utils</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="send_the_raven.utils.clean_string.html">send_the_raven.utils.clean_string</a></li>
 <li class="toctree-l3"><a class="reference internal" href="send_the_raven.utils.generate_id.html">send_the_raven.utils.generate_id</a></li>
 <li class="toctree-l3"><a class="reference internal" href="send_the_raven.utils.split_into_n_elements.html">send_the_raven.utils.split_into_n_elements</a></li>
 </ul>
@@ -322,7 +323,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#send_the_raven.address.Addresses.__init__"><code class="docutils literal notranslate"><span class="pre">Addresses.__init__()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#send_the_raven.address.Addresses.__call__"><code class="docutils literal notranslate"><span class="pre">Addresses.__call__()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id0"><code class="docutils literal notranslate"><span class="pre">Addresses.__init__()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#send_the_raven.address.Addresses.normalize"><code class="docutils literal notranslate"><span class="pre">Addresses.normalize()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#send_the_raven.address.Addresses.normalize_parallel"><code class="docutils literal notranslate"><span class="pre">Addresses.normalize_parallel()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -347,7 +348,9 @@ document.write(`
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>addresses</strong> (<em>iterable</em>) – iterable of any to construct Address object.</p></li>
-<li><p><strong>field_mapping</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><em>dict</em></a>) – A dictionary of field names to be used when constructing the Address objects.</p></li>
+<li><p><strong>field_mapping</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><em>dict</em></a>) – A dictionary of field names to be used when constructing the Address objects. The default is
+<code class="xref py py-const docutils literal notranslate"><span class="pre">DEFAULT_ADDRESS_MAPPING</span></code>. The dict’s keys are <a class="reference internal" href="send_the_raven.address.Address.html#send_the_raven.address.Address" title="send_the_raven.address.Address"><code class="xref py py-class docutils literal notranslate"><span class="pre">Address</span></code></a>’s attributes. The dict’s values are
+the key in the input addresses.</p></li>
 </ul>
 </dd>
 </dl>
@@ -373,13 +376,19 @@ document.write(`
 </dl>
 </dd></dl>
 
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="p">[{</span><span class="s1">&#39;street address&#39;</span><span class="p">:</span> <span class="s1">&#39;12 main st&#39;</span><span class="p">,</span> <span class="s1">&#39;city&#39;</span><span class="p">:</span> <span class="n">boston</span><span class="p">},</span> <span class="p">{</span><span class="s1">&#39;street address&#39;</span><span class="p">:</span> <span class="s1">&#39;14 main st&#39;</span><span class="p">,</span> <span class="s1">&#39;city&#39;</span><span class="p">:</span> <span class="n">boston</span><span class="p">}]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">field_mapper</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;street&#39;</span><span class="p">:</span> <span class="s1">&#39;street address&#39;</span><span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">addresses</span> <span class="o">=</span> <span class="n">Addresses</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">field_mapper</span><span class="p">)</span>
+</pre></div>
+</div>
 <dl class="py method">
 <dt class="sig sig-object py" id="send_the_raven.address.Addresses.__init__">
 <span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">addresses</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field_mapping</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{'address_line_2':</span> <span class="pre">'address_line_2',</span> <span class="pre">'city':</span> <span class="pre">'city',</span> <span class="pre">'full_address':</span> <span class="pre">'full_address',</span> <span class="pre">'id':</span> <span class="pre">'id',</span> <span class="pre">'state':</span> <span class="pre">'state',</span> <span class="pre">'street':</span> <span class="pre">'street',</span> <span class="pre">'zip_code':</span> <span class="pre">'zip_code'}</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/send_the_raven/address.html#Addresses.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#send_the_raven.address.Addresses.__init__" title="Permalink to this definition">#</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>addresses</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Iterable" title="(in Python v3.11)"><em>Iterable</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.11)"><em>Any</em></a><em>]</em>) – </p></li>
+<li><p><strong>addresses</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Iterable" title="(in Python v3.11)"><em>Iterable</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Mapping" title="(in Python v3.11)"><em>Mapping</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a><em>] </em><em>| </em><a class="reference internal" href="send_the_raven.address.Address.html#send_the_raven.address.Address" title="send_the_raven.address.Address"><em>Address</em></a><em>]</em>) – </p></li>
 <li><p><strong>field_mapping</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><em>dict</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a><em>]</em>) – </p></li>
 </ul>
 </dd>
@@ -410,7 +419,7 @@ document.write(`
 <tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">__len__</span></code>()</p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#send_the_raven.address.Addresses.normalize" title="send_the_raven.address.Addresses.normalize"><code class="xref py py-obj docutils literal notranslate"><span class="pre">normalize</span></code></a>([number_of_proccesses])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#send_the_raven.address.Addresses.normalize_parallel" title="send_the_raven.address.Addresses.normalize_parallel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">normalize_parallel</span></code></a>([number_of_proccesses])</p></td>
 <td><p>Normalize all addresses in parallel.</p></td>
 </tr>
 </tbody>
@@ -421,7 +430,7 @@ document.write(`
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>addresses</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Iterable" title="(in Python v3.11)"><em>Iterable</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.11)"><em>Any</em></a><em>]</em>) – </p></li>
+<li><p><strong>addresses</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Iterable" title="(in Python v3.11)"><em>Iterable</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Mapping" title="(in Python v3.11)"><em>Mapping</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a><em>] </em><em>| </em><a class="reference internal" href="send_the_raven.address.Address.html#send_the_raven.address.Address" title="send_the_raven.address.Address"><em>Address</em></a><em>]</em>) – </p></li>
 <li><p><strong>field_mapping</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><em>dict</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><em>str</em></a><em>]</em>) – </p></li>
 </ul>
 </dd>
@@ -429,8 +438,8 @@ document.write(`
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="send_the_raven.address.Addresses.normalize">
-<span class="sig-name descname"><span class="pre">normalize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">number_of_proccesses</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/send_the_raven/address.html#Addresses.normalize"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#send_the_raven.address.Addresses.normalize" title="Permalink to this definition">#</a></dt>
+<dt class="sig sig-object py" id="send_the_raven.address.Addresses.normalize_parallel">
+<span class="sig-name descname"><span class="pre">normalize_parallel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">number_of_proccesses</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/send_the_raven/address.html#Addresses.normalize_parallel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#send_the_raven.address.Addresses.normalize_parallel" title="Permalink to this definition">#</a></dt>
 <dd><p>Normalize all addresses in parallel. Uses <code class="xref py py-func docutils literal notranslate"><span class="pre">multiprocessing.Pool.map()</span></code>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -493,7 +502,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#send_the_raven.address.Addresses.__init__"><code class="docutils literal notranslate"><span class="pre">Addresses.__init__()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#send_the_raven.address.Addresses.__call__"><code class="docutils literal notranslate"><span class="pre">Addresses.__call__()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id0"><code class="docutils literal notranslate"><span class="pre">Addresses.__init__()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#send_the_raven.address.Addresses.normalize"><code class="docutils literal notranslate"><span class="pre">Addresses.normalize()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#send_the_raven.address.Addresses.normalize_parallel"><code class="docutils literal notranslate"><span class="pre">Addresses.normalize_parallel()</span></code></a></li>
 </ul>
 </li>
 </ul>

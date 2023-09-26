@@ -163,6 +163,7 @@
 </ul>
 </li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="send_the_raven.utils.html">send_the_raven.utils</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="send_the_raven.utils.clean_string.html">send_the_raven.utils.clean_string</a></li>
 <li class="toctree-l3"><a class="reference internal" href="send_the_raven.utils.generate_id.html">send_the_raven.utils.generate_id</a></li>
 <li class="toctree-l3"><a class="reference internal" href="send_the_raven.utils.split_into_n_elements.html">send_the_raven.utils.split_into_n_elements</a></li>
 </ul>
@@ -321,7 +322,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#send_the_raven.geoaddress.Geocoder.__call__"><code class="docutils literal notranslate"><span class="pre">Geocoder.__call__()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id0"><code class="docutils literal notranslate"><span class="pre">Geocoder.__init__()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#send_the_raven.geoaddress.Geocoder.geocode"><code class="docutils literal notranslate"><span class="pre">Geocoder.geocode()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#send_the_raven.geoaddress.Geocoder.normalize"><code class="docutils literal notranslate"><span class="pre">Geocoder.normalize()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#send_the_raven.geoaddress.Geocoder.normalize_parallel"><code class="docutils literal notranslate"><span class="pre">Geocoder.normalize_parallel()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#send_the_raven.geoaddress.Geocoder.start_geocode"><code class="docutils literal notranslate"><span class="pre">Geocoder.start_geocode()</span></code></a></li>
 </ul>
 </li>
@@ -402,7 +403,7 @@ all addresses are geocoded.</p>
 <tr class="row-even"><td><p><a class="reference internal" href="#send_the_raven.geoaddress.Geocoder.geocode" title="send_the_raven.geoaddress.Geocoder.geocode"><code class="xref py py-obj docutils literal notranslate"><span class="pre">geocode</span></code></a>(address, geocoder)</p></td>
 <td><p>Geocode address with geopy_geocoder.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#send_the_raven.geoaddress.Geocoder.normalize" title="send_the_raven.geoaddress.Geocoder.normalize"><code class="xref py py-obj docutils literal notranslate"><span class="pre">normalize</span></code></a>([number_of_proccesses])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#send_the_raven.geoaddress.Geocoder.normalize_parallel" title="send_the_raven.geoaddress.Geocoder.normalize_parallel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">normalize_parallel</span></code></a>([number_of_proccesses])</p></td>
 <td><p>Normalize all addresses in parallel.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#send_the_raven.geoaddress.Geocoder.start_geocode" title="send_the_raven.geoaddress.Geocoder.start_geocode"><code class="xref py py-obj docutils literal notranslate"><span class="pre">start_geocode</span></code></a>(geocoder_name, args)</p></td>
@@ -442,8 +443,8 @@ feel free to use this function by providing it the geocoder.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="send_the_raven.geoaddress.Geocoder.normalize">
-<span class="sig-name descname"><span class="pre">normalize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">number_of_proccesses</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#send_the_raven.geoaddress.Geocoder.normalize" title="Permalink to this definition">#</a></dt>
+<dt class="sig sig-object py" id="send_the_raven.geoaddress.Geocoder.normalize_parallel">
+<span class="sig-name descname"><span class="pre">normalize_parallel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">number_of_proccesses</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#send_the_raven.geoaddress.Geocoder.normalize_parallel" title="Permalink to this definition">#</a></dt>
 <dd><p>Normalize all addresses in parallel. Uses <code class="xref py py-func docutils literal notranslate"><span class="pre">multiprocessing.Pool.map()</span></code>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -523,7 +524,7 @@ this function on your own.</p>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#send_the_raven.geoaddress.Geocoder.__call__"><code class="docutils literal notranslate"><span class="pre">Geocoder.__call__()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id0"><code class="docutils literal notranslate"><span class="pre">Geocoder.__init__()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#send_the_raven.geoaddress.Geocoder.geocode"><code class="docutils literal notranslate"><span class="pre">Geocoder.geocode()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#send_the_raven.geoaddress.Geocoder.normalize"><code class="docutils literal notranslate"><span class="pre">Geocoder.normalize()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#send_the_raven.geoaddress.Geocoder.normalize_parallel"><code class="docutils literal notranslate"><span class="pre">Geocoder.normalize_parallel()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#send_the_raven.geoaddress.Geocoder.start_geocode"><code class="docutils literal notranslate"><span class="pre">Geocoder.start_geocode()</span></code></a></li>
 </ul>
 </li>
