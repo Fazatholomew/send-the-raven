@@ -36,6 +36,12 @@ def test_generate_full_address():
     address = Address(street="12 main st", state="ma")
     assert str(address) == "12 main st, ma"
 
+def test_normalize_component():
+    add = Address(street='12 main st')
+    assert add.street == '12 main st'
+    add.normalize()
+    assert add.street == '12 MAIN ST'
+
 
 def test_normalize_full_address_or_components():
     with patch("send_the_raven.address.normalize_address_record") as mock_scourgify:
@@ -49,21 +55,14 @@ def test_normalize_full_address_or_components():
         mock_scourgify.assert_called_with("12 main street, boston, ma")
         address = Address(street="12 main street", city="boston", state="ma")
         address.normalize()
-        mock_scourgify.assert_called_with(
-            {
-                "address_line_1": "12 main street",
-                "address_line_2": "",
-                "city": "boston",
-                "state": "ma",
-                "zip_code": "",
-            }
-        )
+        mock_scourgify.assert_called_with('12 main street, boston, ma')
 
 
 def test_saved_address_even_normalizing_error():
     address = Address(full_address="main street, boston, ma")
     address.normalize()
-    assert address.street == "MAIN STREET, BOSTON, MA"
+    assert address.street == "MAIN STREET"
+    assert address.state == 'MA'
 
 
 def test_process_street():

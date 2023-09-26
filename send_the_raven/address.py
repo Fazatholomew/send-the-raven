@@ -1,6 +1,6 @@
 import pydantic
 from typing import Optional, Iterable, Mapping, TypedDict
-from .utils import generate_id
+from .utils import generate_id, clean_string
 from multiprocessing import Pool
 from scourgify import normalize_address_record
 from scourgify.exceptions import (
@@ -12,6 +12,7 @@ from difflib import SequenceMatcher
 from re import compile
 from json import load
 from importlib.resources import files
+from usaddress import tag, RepeatedLabelError
 
 STREET_ADDRESS_NUMBER_REGEX_PATTERN = compile(r"\d+")
 
@@ -24,6 +25,16 @@ DEFAULT_ADDRESS_MAPPING = {
     "zip_code": "zip_code",
     "id": "id",
 }
+
+STREET_KEYS = [
+    "AddressNumber",
+    "AddressNumberSuffix",
+    "StreetNamePreDirectional",
+    "StreetName",
+    "StreetNamePostType",
+]
+
+UNIT_KEYS = ["OccupancyType", "OccupancyIdentifier"]
 
 
 class Placemapper(TypedDict):
@@ -112,32 +123,101 @@ class Address(pydantic.BaseModel):
             it will be set to None. No error would be thrown.
         """
         normalized = None
+        is_complete = True
+        for field in ["street", "address_line_2", "city", "state", "zip_code"]:
+            value = getattr(self, field)
+            if value is None:
+                is_complete = False
+                continue
+            cleaned_value = clean_string(value)
+            setattr(self, field, cleaned_value)
         try:
-            normalized = normalize_address_record(
-                self.full_address
-                if self.full_address is not None
-                else {
-                    "address_line_1": self.street or "",
-                    "address_line_2": self.address_line_2 or "",
-                    "city": self.city or "",
-                    "state": self.state or "",
-                    "postal_code": self.zip_code or "",
-                }
-            )
-
+            if is_complete:
+                normalized = normalize_address_record(
+                    {
+                        "address_line_1": self.street or "",
+                        "address_line_2": self.address_line_2 or "",
+                        "city": self.city or "",
+                        "state": self.state or "",
+                        "postal_code": self.zip_code or "",
+                    }
+                )
+            elif self.full_address is not None:
+                normalized = normalize_address_record(self.full_address)
+            else:
+                normalized = normalize_address_record(self.__str__())
         except (
             UnParseableAddressError,
             AmbiguousAddressError,
             AddressNormalizationError,
-        ) as e:
-            if len(e.args) == 3:
-                normalized = e.args[2]
+        ):
+            # if len(e.args) == 3:
+            #     normalized = e.args[2]
+            #     if any(
+            #         [
+            #             value is not None and len(value) > 0
+            #             for value in normalized.values()
+            #         ]
+            #     ):
+            #         self.extract_address()
+            #         return
+            # else:
+            #     self.extract_address()
+            #     return
+            self.extract_address()
+            for field in ["street", "address_line_2", "city", "state", "zip_code"]:
+                value = getattr(self, field)
+                if value is None:
+                    continue
+                setattr(self, field, value.upper())
+
         if normalized is not None:
             self.street = normalized["address_line_1"]
             self.address_line_2 = normalized["address_line_2"]
             self.city = normalized["city"]
             self.state = normalized["state"]
             self.zip_code = normalized["postal_code"]
+
+    def extract_address(self):
+        """
+        Manually extract address directly using usaddress library.
+        """
+        try:
+            result = tag(
+                self.full_address if self.full_address is not None else self.__str__()
+            )
+        except RepeatedLabelError as e:
+            parsed = {}
+            for value, key in e.parsed_string:
+                if key in parsed:
+                    continue
+                parsed[key] = value
+            result = [parsed, "Street Address"]
+        # extracting street
+        street_words = []
+        for key in STREET_KEYS:
+            if key in result[0]:
+                street_words.append(result[0][key])
+        if len(street_words) > 0:
+            self.street = " ".join(street_words)
+
+        # extrating unit
+        unit_words = []
+        for key in UNIT_KEYS:
+            if key in result[0]:
+                unit_words.append(result[0][key])
+        if len(unit_words) > 0:
+            self.address_line_2 = " ".join(unit_words)
+
+        # extracting city
+        if "PlaceName" in result[0]:
+            self.city = result[0]["PlaceName"]
+        # extrating zipcode
+        if "ZipCode" in result[0]:
+            self.zip_code = result[0]["ZipCode"][:10]
+
+        if "StateName" in result[0]:
+            self.state = result[0]["StateName"][:10]
 
     def __eq__(self, b) -> bool:
         """
@@ -271,7 +351,7 @@ class Addresses:
 
     def __init__(
         self,
-        addresses: Iterable[Mapping[str,str]],
+        addresses: Iterable[Mapping[str, str] | Address],
         field_mapping: dict[str, str] = DEFAULT_ADDRESS_MAPPING,
     ):
         self.field_mapping = field_mapping

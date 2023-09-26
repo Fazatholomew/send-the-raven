@@ -1,5 +1,5 @@
 from random import getrandbits, random
-from typing import Iterable, TypeVar
+from typing import Iterable, TypeVar, Any
 
 T = TypeVar("T")
 
@@ -27,3 +27,15 @@ def split_into_n_elements(data: Iterable[T], n_element: int = 5) -> list[list[T]
     """
     data_list = list(data)
     return [data_list[i : i + n_element] for i in range(0, len(data_list), n_element)]
+
+def clean_string(input: Any) -> str:
+    """
+    Clean address string. Remove extra spaces.
+
+    Args:
+        input: any variable to be converted to string and cleaned.
+
+    Returns:
+        str: cleaned string
+    """
+    return ' '.join(f'{input}'.split())
