@@ -24,7 +24,7 @@
       ~Geocoder.__iter__
       ~Geocoder.__len__
       ~Geocoder.geocode
-      ~Geocoder.normalize
+      ~Geocoder.normalize_parallel
       ~Geocoder.start_geocode
    
    

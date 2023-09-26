@@ -1,4 +1,4 @@
-send\_the\_raven.address.Address
+﻿send\_the\_raven.address.Address
 ================================
 
 .. currentmodule:: send_the_raven.address
@@ -24,6 +24,7 @@ send\_the\_raven.address.Address
       ~Address.construct
       ~Address.copy
       ~Address.dict
+      ~Address.extract_address
       ~Address.fill_in_city
       ~Address.fill_in_state
       ~Address.fill_in_zipcode

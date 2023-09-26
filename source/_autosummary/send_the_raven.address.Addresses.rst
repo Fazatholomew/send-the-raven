@@ -23,7 +23,7 @@
       ~Addresses.__init__
       ~Addresses.__iter__
       ~Addresses.__len__
-      ~Addresses.normalize
+      ~Addresses.normalize_parallel
    
    
 

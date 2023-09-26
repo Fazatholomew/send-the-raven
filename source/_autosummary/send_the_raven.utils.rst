@@ -14,6 +14,7 @@
    .. autosummary::
       :toctree:
    
+      clean_string
       generate_id
       split_into_n_elements
    

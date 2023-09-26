@@ -23,7 +23,7 @@
       ~Validator.__init__
       ~Validator.__iter__
       ~Validator.__len__
-      ~Validator.normalize
+      ~Validator.normalize_parallel
       ~Validator.start_validation
       ~Validator.validate
    
