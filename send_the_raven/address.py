@@ -367,7 +367,7 @@ class Addresses:
             for address in addresses
         ]
 
-    def normalize(self, number_of_proccesses: int | None = None):
+    def normalize_parallel(self, number_of_proccesses: int | None = None):
         """
         Normalize all addresses in parallel. Uses :py:func:`multiprocessing.Pool.map`.
 
